@@ -1,0 +1,109 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const fleet = [
+  {
+    name: "Caminhão Roll-On Roll-Off",
+    icon: "fa-solid fa-truck-ramp-box",
+    description: "Transportes de carga a granel e resíduos industriais em caçambas específicas com sistema de báscula e guincho hidráulico.",
+    tag: "Carga a Granel & Resíduos",
+  },
+  {
+    name: "Caminhão Roll-On Roll-Off Romeu e Julieta",
+    icon: "fa-solid fa-truck-moving",
+    description: "Transportes de carga a granel e resíduos industriais em alta capacidade volumétrica para rotas e operações pesadas.",
+    tag: "Grande Capacidade",
+  },
+  {
+    name: "Caminhão Tanque",
+    icon: "fa-solid fa-truck-droplet",
+    description: "Transportes de efluentes e resíduos líquidos industriais com tanque vedado e conexões anti-vazamento.",
+    tag: "Efluentes Líquidos",
+  },
+  {
+    name: "Caminhão com Equipamento Auto Vácuo",
+    icon: "fa-solid fa-arrow-down-up-across-line",
+    description: "Transportes e sucção de resíduos líquidos, lamas industriais e esgotamento de caixas separadoras.",
+    tag: "Auto Vácuo / Sucção",
+  },
+  {
+    name: "Caminhão Plataforma",
+    icon: "fa-solid fa-layer-group",
+    description: "Transportes de até 40 tambores de resíduos sólidos ou perigosos devidamente paletizados e amarrados.",
+    tag: "Até 40 Tambores",
+  },
+  {
+    name: "Caminhão com Hidrojateamento",
+    icon: "fa-solid fa-water",
+    description: "Limpeza de fossa séptica, caixas de gordura e desobstrução de tubulações com água em altíssima pressão.",
+    tag: "Limpeza de Fossas",
+  },
+];
+---
+
+<Layout
+  title="Equipamentos | Enfoque Ambiental"
+  description="Conheça a frota e os equipamentos de última geração da Enfoque Ambiental: Roll-on Roll-off, Auto Vácuo, Tanque, Plataforma e Hidrojateamento."
+  currentPath="/equipamentos"
+>
+  <!-- Page Header -->
+  <section class="bg-[#003300] text-white py-12 md:py-16 border-b border-emerald-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl space-y-3">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#a6d37e]/20 text-[#a6d37e] text-xs font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-truck" aria-hidden="true"></i>
+          <span>Frota Operacional</span>
+        </span>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
+          Nossos Equipamentos
+        </h1>
+        <p class="text-emerald-100/90 text-base sm:text-lg">
+          Equipamentos modernos e homologados para transporte com segurança, agilidade e respeito irrestrito às normas técnicas vigentes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fleet Grid -->
+  <section class="py-16 md:py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {fleet.map((item, index) => (
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs hover:border-[#98c571] hover:shadow-md transition-all flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <div class="w-14 h-14 rounded-xl bg-[#003300] text-[#a6d37e] flex items-center justify-center shadow-xs">
+                  <i class={`${item.icon} text-2xl`} aria-hidden="true"></i>
+                </div>
+                <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-[#bfdba7]/40 text-[#003300]">
+                  Item {index + 1}
+                </span>
+              </div>
+
+              <h2 class="text-xl font-bold text-gray-900">
+                {item.name}
+              </h2>
+
+              <p class="text-gray-600 text-sm leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-md">
+                {item.tag}
+              </span>
+              <a
+                href="/contato"
+                class="text-xs font-bold text-[#006400] hover:text-[#003300] inline-flex items-center gap-1"
+              >
+                <span>Consultar</span>
+                <i class="fa-solid fa-chevron-right text-[10px]" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

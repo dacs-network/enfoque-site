@@ -1,0 +1,30 @@
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+@import "tailwindcss";
+
+@theme {
+  --color-brand-deep: #003300;
+  --color-brand-forest: #0a2912;
+  --color-brand-green: #006400;
+  --color-brand-accent: #15803d;
+  --color-brand-light: #a6d37e;
+  --color-brand-border: #98c571;
+  --color-brand-surface: #f4f8f5;
+  --color-brand-muted: #4b6354;
+  --color-menu-pastel: #bfdba7;
+  --color-menu-light: #c2e0a8;
+  --font-sans: 'Source Sans 3', 'Source Sans Pro', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color: #1a241e;
+    background-color: #ffffff;
+    font-family: var(--font-sans);
+  }
+
+  ::selection {
+    background-color: #003300;
+    color: #ffffff;
+  }
+}
