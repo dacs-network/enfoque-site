@@ -38,16 +38,13 @@ const navItems = [
           return (
             <a
               href={item.href}
-              class={`px-3.5 py-2 text-sm lg:text-base font-semibold transition-all rounded-md relative ${
+              class={`px-3.5 py-2 text-sm lg:text-base font-semibold transition-all rounded-md ${
                 isActive
-                  ? "text-[#003300] bg-[#bfdba7]/40 shadow-xs border-b-2 border-[#006400]"
+                  ? "text-[#003300] bg-[#bfdba7]/40 font-bold"
                   : "text-gray-700 hover:text-[#003300] hover:bg-gray-50"
               }`}
             >
               {item.label}
-              {isActive && (
-                <span class="absolute bottom-0 left-2 right-2 h-0.5 bg-[#006400] rounded-full"></span>
-              )}
             </a>
           );
         })}
