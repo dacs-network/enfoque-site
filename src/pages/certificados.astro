@@ -1,56 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-const certifications = [
-  {
-    name: "Alvará de Funcionamento",
-    entity: "Prefeitura Municipal de Araras",
-    image: "/img/logotipos/alvara.jpg",
-    description: "Alvará de localização e funcionamento.",
-    docs: [
-      { name: "Alvará de Funcionamento (PDF)", file: "/certificados/alvara/alvara.pdf" },
-    ],
-  },
-  {
-    name: "ANTT",
-    entity: "Agência Nacional de Transportes Terrestres",
-    image: "/img/logotipos/antt.jpg",
-    description: "Registro Nacional de Transportadores Rodoviários de Carga (RNTRC).",
-    docs: [
-      { name: "Certificado ANTT (PDF)", file: "/certificados/antt/antt.pdf" },
-      { name: "Comprovante RNTRC (PDF)", file: "/certificados/antt/rntrc.pdf" },
-    ],
-  },
-  {
-    name: "AVCB",
-    entity: "Corpo de Bombeiros da PMESP",
-    image: "/img/logotipos/avcb.jpg",
-    description: "Auto de Vistoria do Corpo de Bombeiros.",
-    docs: [
-      { name: "Auto de Vistoria (PDF)", file: "/certificados/avcb/avcb.pdf" },
-    ],
-  },
-  {
-    name: "CETESB",
-    entity: "Companhia Ambiental do Estado de São Paulo",
-    image: "/img/logotipos/cetesb.jpg",
-    description: "Licença de Operação e Certificado de Dispensa de Licença (CDL).",
-    docs: [
-      { name: "CDL - Certificado de Dispensa (PDF)", file: "/certificados/cetesb/cdl.pdf" },
-      { name: "Licença de Operação (PDF)", file: "/certificados/cetesb/licenca.pdf" },
-    ],
-  },
-  {
-    name: "IBAMA",
-    entity: "Instituto Brasileiro do Meio Ambiente",
-    image: "/img/logotipos/ibama.jpg",
-    description: "Certificado de Regularidade e Autorização para Transporte de Produtos Perigosos.",
-    docs: [
-      { name: "Certificado de Regularidade (PDF)", file: "/certificados/ibama/certificado.pdf" },
-      { name: "Transporte de Produtos Perigosos (PDF)", file: "/certificados/ibama/autorizacao.pdf" },
-    ],
-  },
-];
+import { certifications } from "../data/certifications";
 ---
 
 <Layout
@@ -58,7 +8,6 @@ const certifications = [
   description="Consulte os certificados e licenças regulatórias da Enfoque Ambiental: CETESB, IBAMA, ANTT, AVCB e Alvará de Funcionamento."
   currentPath="/certificados"
 >
-  <!-- Page Header -->
   <section class="bg-[#003300] text-white py-12 md:py-16 border-b border-emerald-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="max-w-3xl space-y-2">
@@ -72,7 +21,6 @@ const certifications = [
     </div>
   </section>
 
-  <!-- Certifications Grid -->
   <section class="py-16 md:py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -90,7 +38,7 @@ const certifications = [
 
               <div>
                 <span class="text-xs font-semibold text-emerald-700 uppercase tracking-wider block">
-                  {cert.entity}
+                  {cert.authority}
                 </span>
                 <h2 class="text-lg font-bold text-gray-900 mt-1">
                   {cert.name}
@@ -98,22 +46,22 @@ const certifications = [
               </div>
 
               <p class="text-gray-600 text-sm leading-relaxed">
-                {cert.description}
+                {cert.scope}
               </p>
             </div>
 
             <div class="pt-6 mt-6 border-t border-gray-100 space-y-2">
-              <span class="text-xs font-bold text-gray-700 block">Documentos:</span>
-              {cert.docs.map((doc) => (
+              <span class="text-xs font-bold text-gray-700 block">Documentos Comprobatórios:</span>
+              {cert.documents.map((doc) => (
                 <a
-                  href={doc.file}
+                  href={doc.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   class="flex items-center justify-between text-xs font-semibold text-[#006400] hover:text-[#003300] bg-emerald-50 hover:bg-emerald-100/80 p-2.5 rounded-lg transition-colors"
                 >
                   <span class="flex items-center gap-2">
                     <i class="fa-solid fa-file-pdf text-red-600 text-sm" aria-hidden="true"></i>
-                    <span>{doc.name}</span>
+                    <span>{doc.title}</span>
                   </span>
                   <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>
                 </a>

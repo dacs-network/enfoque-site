@@ -1,0 +1,179 @@
+---
+interface Slide {
+  image: string;
+  alt: string;
+  title: string;
+  subtitle: string;
+}
+
+const slides: Slide[] = [
+  {
+    image: "/img/slides/slide1.webp",
+    alt: "Serviços de Consultoria e Assessoria Ambiental",
+    title: "Consultoria e Assessoria Ambiental",
+    subtitle: "Licenciamento junto à CETESB, CADRI, IBAMA, DAEE e elaboração de normas e projetos técnicos.",
+  },
+  {
+    image: "/img/slides/slide2.webp",
+    alt: "Coleta e Transporte de Resíduos",
+    title: "Coleta e Transporte de Resíduos",
+    subtitle: "Atendimento a resíduos Classe I e Classe II, efluentes industriais e acidentes com produtos químicos.",
+  },
+  {
+    image: "/img/slides/slide3.webp",
+    alt: "Gerenciamento de Resíduos",
+    title: "Gerenciamento de Resíduos",
+    subtitle: "Conformidade com regulamentos e normas técnicas aplicáveis em vigor.",
+  },
+];
+---
+
+<section class="relative bg-emerald-950 overflow-hidden" aria-label="Slideshow institucional">
+  <div id="hero-carousel" class="relative w-full overflow-hidden min-h-[380px] sm:min-h-[440px] md:min-h-[500px]">
+    {slides.map((slide, index) => (
+      <div
+        class={`carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out flex items-center ${
+          index === 0 ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+        }`}
+        data-slide-index={index}
+      >
+        <div class="absolute inset-0">
+          <img
+            src={slide.image}
+            alt={slide.alt}
+            class="w-full h-full object-cover object-center filter brightness-90"
+            loading={index === 0 ? "eager" : "lazy"}
+          />
+          <div class="absolute inset-0 bg-gradient-to-r from-[#003300]/95 via-[#003300]/80 to-transparent"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-20 w-full">
+          <div class="max-w-2xl text-white space-y-4">
+            <h1 class="text-2xl sm:text-3xl md:text-5xl font-extrabold leading-tight text-white tracking-tight">
+              {slide.title}
+            </h1>
+
+            <p class="text-sm sm:text-base md:text-lg text-emerald-100/90 leading-relaxed">
+              {slide.subtitle}
+            </p>
+
+            <div class="pt-2">
+              <a
+                href="/contato"
+                class="inline-flex items-center gap-2 bg-[#006400] hover:bg-[#004d00] text-white font-bold text-sm sm:text-base px-6 py-3 rounded-lg shadow-sm hover:shadow transition-all"
+              >
+                <i class="fa-regular fa-comment-dots text-[#a6d37e]" aria-hidden="true"></i>
+                <span>Fale Conosco</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+
+    <button
+      id="carousel-prev"
+      type="button"
+      class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center transition-colors backdrop-blur-xs"
+      aria-label="Slide anterior"
+    >
+      <i class="fa-solid fa-chevron-left text-base sm:text-lg" aria-hidden="true"></i>
+    </button>
+
+    <button
+      id="carousel-next"
+      type="button"
+      class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center transition-colors backdrop-blur-xs"
+      aria-label="Próximo slide"
+    >
+      <i class="fa-solid fa-chevron-right text-base sm:text-lg" aria-hidden="true"></i>
+    </button>
+
+    <div class="absolute bottom-4 left-0 right-0 z-20 flex justify-center gap-2">
+      {slides.map((_, index) => (
+        <button
+          type="button"
+          class={`carousel-indicator w-3 h-3 rounded-full transition-all ${
+            index === 0 ? "bg-[#a6d37e] scale-125" : "bg-white/50 hover:bg-white"
+          }`}
+          data-indicator-index={index}
+          aria-label={`Ir para slide ${index + 1}`}
+        ></button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const slides = document.querySelectorAll(".carousel-slide");
+  const indicators = document.querySelectorAll(".carousel-indicator");
+  const prevBtn = document.getElementById("carousel-prev");
+  const nextBtn = document.getElementById("carousel-next");
+
+  let currentSlide = 0;
+  let autoplayTimer: number | null = null;
+  const slideCount = slides.length;
+
+  function showSlide(index: number) {
+    if (slideCount === 0) return;
+    currentSlide = (index + slideCount) % slideCount;
+
+    slides.forEach((slide, i) => {
+      if (i === currentSlide) {
+        slide.classList.remove("opacity-0", "z-0", "pointer-events-none");
+        slide.classList.add("opacity-100", "z-10");
+      } else {
+        slide.classList.remove("opacity-100", "z-10");
+        slide.classList.add("opacity-0", "z-0", "pointer-events-none");
+      }
+    });
+
+    indicators.forEach((ind, i) => {
+      if (i === currentSlide) {
+        ind.classList.remove("bg-white/50");
+        ind.classList.add("bg-[#a6d37e]", "scale-125");
+      } else {
+        ind.classList.remove("bg-[#a6d37e]", "scale-125");
+        ind.classList.add("bg-white/50");
+      }
+    });
+  }
+
+  function nextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  function prevSlide() {
+    showSlide(currentSlide - 1);
+  }
+
+  function resetAutoplay() {
+    if (autoplayTimer) clearInterval(autoplayTimer);
+    autoplayTimer = window.setInterval(nextSlide, 7000);
+  }
+
+  if (prevBtn && nextBtn && slides.length > 0) {
+    nextBtn.addEventListener("click", () => {
+      nextSlide();
+      resetAutoplay();
+    });
+
+    prevBtn.addEventListener("click", () => {
+      prevSlide();
+      resetAutoplay();
+    });
+
+    indicators.forEach((ind) => {
+      ind.addEventListener("click", (e) => {
+        const target = e.currentTarget as HTMLElement;
+        const targetIndex = Number(target.getAttribute("data-indicator-index"));
+        if (!isNaN(targetIndex)) {
+          showSlide(targetIndex);
+          resetAutoplay();
+        }
+      });
+    });
+
+    resetAutoplay();
+  }
+</script>

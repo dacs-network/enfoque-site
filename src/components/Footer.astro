@@ -1,8 +1,8 @@
 ---
+import { company } from "../data/company";
 ---
 
 <footer class="bg-[#003300] text-white border-t-4 border-[#006400]">
-  <!-- Main Footer Content -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
       <!-- Col 1: Institucional -->
@@ -10,7 +10,7 @@
         <a href="/" class="inline-block" aria-label="Enfoque Ambiental - Página Inicial">
           <img
             src="/img/logo-white.png"
-            alt="Enfoque Ambiental"
+            alt={company.name}
             width="220"
             height="90"
             class="h-12 sm:h-14 w-auto object-contain"
@@ -18,7 +18,7 @@
           />
         </a>
         <p class="text-emerald-100/90 text-sm leading-relaxed">
-          A Enfoque Ambiental trabalha há mais de 10 anos oferecendo serviços de coleta, transporte de resíduos e consultoria ambiental para o setor público e privado.
+          {company.description}
         </p>
         <div class="flex items-center gap-3 pt-2">
           <a
@@ -31,7 +31,7 @@
             <i class="fa-brands fa-facebook-f text-base" aria-hidden="true"></i>
           </a>
           <a
-            href="mailto:contato@enfoqueambiental.com.br"
+            href={`mailto:${company.email}`}
             class="w-9 h-9 rounded-full bg-emerald-950 flex items-center justify-center text-emerald-200 hover:text-white hover:bg-[#006400] transition-colors"
             aria-label="E-mail de contato"
           >
@@ -135,9 +135,9 @@
             <i class="fa-solid fa-map-pin text-[#a6d37e] mt-1 shrink-0" aria-hidden="true"></i>
             <div>
               <p class="font-semibold text-white">Sede:</p>
-              <p>Rua Ruperto Malaman, 380</p>
-              <p>Distrito Industrial • Araras - SP</p>
-              <p class="text-xs text-emerald-300/80">CEP 13602-104</p>
+              <p>{company.address.street}</p>
+              <p>{company.address.district} • {company.address.city} - {company.address.state}</p>
+              <p class="text-xs text-emerald-300/80">CEP {company.address.zip}</p>
             </div>
           </div>
 
@@ -145,8 +145,9 @@
             <i class="fa-solid fa-phone text-[#a6d37e] mt-1 shrink-0" aria-hidden="true"></i>
             <div>
               <p class="font-semibold text-white">Telefones:</p>
-              <p><a href="tel:1935417975" class="hover:text-white">(19) 3541 7975</a></p>
-              <p><a href="tel:1933219111" class="hover:text-white">(19) 3321 9111</a></p>
+              {company.phones.map((phone) => (
+                <p><a href={`tel:${phone.raw}`} class="hover:text-white">{phone.display}</a></p>
+              ))}
             </div>
           </div>
 
@@ -154,7 +155,7 @@
             <i class="fa-solid fa-envelope text-[#a6d37e] mt-1 shrink-0" aria-hidden="true"></i>
             <div>
               <p class="font-semibold text-white">E-mail:</p>
-              <p><a href="mailto:contato@enfoqueambiental.com.br" class="hover:text-white break-all">contato@enfoqueambiental.com.br</a></p>
+              <p><a href={`mailto:${company.email}`} class="hover:text-white break-all">{company.email}</a></p>
             </div>
           </div>
         </div>
@@ -166,10 +167,10 @@
   <div class="border-t border-emerald-950/80 bg-black/30 py-4 px-4 sm:px-6 text-xs text-emerald-200/70">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
       <p>
-        © {new Date().getFullYear()} Enfoque Ambiental - Todos os direitos reservados.
+        © {new Date().getFullYear()} {company.name} - Todos os direitos reservados.
       </p>
       <p class="text-emerald-300/60">
-        Engenharia, Transporte e Consultoria Ambiental
+        {company.tagline}
       </p>
     </div>
   </div>

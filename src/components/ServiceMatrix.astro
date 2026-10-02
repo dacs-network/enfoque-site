@@ -1,0 +1,99 @@
+---
+import { services } from "../data/services";
+
+interface Props {
+  showTitle?: boolean;
+}
+
+const { showTitle = true } = Astro.props;
+
+const operational = services.filter((s) => s.category === "operacional");
+const regulatory = services.filter((s) => s.category === "regulatorio");
+---
+
+<section class="py-16 md:py-20 bg-gray-50 border-y border-gray-200" aria-labelledby="services-heading">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    {showTitle && (
+      <div class="max-w-3xl mb-12 space-y-2">
+        <h2 id="services-heading" class="text-2xl sm:text-3xl font-extrabold text-[#003300] tracking-tight">
+          Principais Serviços Oferecidos
+        </h2>
+        <p class="text-gray-600 text-base">
+          Atendimento a demandas operacionais de campo e processos regulatórios ambientais:
+        </p>
+      </div>
+    )}
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- Frentes Operacionais -->
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-xs space-y-6">
+        <div class="flex items-center gap-3 pb-4 border-b border-gray-100">
+          <div class="w-10 h-10 rounded-lg bg-[#003300] text-[#a6d37e] flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-truck-moving" aria-hidden="true"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-gray-900">Operação e Transporte</h3>
+            <p class="text-xs text-gray-500">Coleta, destinação de efluentes e gerenciamento</p>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          {operational.map((service) => (
+            <div class="space-y-2">
+              <h4 class="text-base font-bold text-[#003300] flex items-center gap-2">
+                <i class={`${service.icon} text-sm text-[#006400]`} aria-hidden="true"></i>
+                <span>{service.title}</span>
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                {service.description}
+              </p>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 pt-1 text-xs text-gray-700">
+                {service.scope.map((item) => (
+                  <li class="flex items-start gap-1.5">
+                    <i class="fa-solid fa-check text-[#006400] mt-0.5" aria-hidden="true"></i>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Frentes Regulatórias -->
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-xs space-y-6">
+        <div class="flex items-center gap-3 pb-4 border-b border-gray-100">
+          <div class="w-10 h-10 rounded-lg bg-[#003300] text-[#a6d37e] flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-file-signature" aria-hidden="true"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-gray-900">Consultoria e Licenciamento</h3>
+            <p class="text-xs text-gray-500">Conformidade legal junto a CETESB, IBAMA e DAEE</p>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          {regulatory.map((service) => (
+            <div class="space-y-2">
+              <h4 class="text-base font-bold text-[#003300] flex items-center gap-2">
+                <i class={`${service.icon} text-sm text-[#006400]`} aria-hidden="true"></i>
+                <span>{service.title}</span>
+              </h4>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                {service.description}
+              </p>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-1.5 pt-1 text-xs text-gray-700">
+                {service.scope.map((item) => (
+                  <li class="flex items-start gap-1.5">
+                    <i class="fa-solid fa-check text-[#006400] mt-0.5" aria-hidden="true"></i>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
