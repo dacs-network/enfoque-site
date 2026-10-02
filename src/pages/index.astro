@@ -3,17 +3,16 @@ import Layout from "../layouts/Layout.astro";
 import HeroSlider from "../components/HeroSlider.astro";
 import ServiceMatrix from "../components/ServiceMatrix.astro";
 import FleetGrid from "../components/FleetGrid.astro";
-import ComplianceStrip from "../components/ComplianceStrip.astro";
 ---
 
 <Layout
-  title="Enfoque Ambiental | Coleta, Transporte e Consultoria Ambiental"
-  description="A Enfoque Ambiental trabalha há mais de 10 anos oferecendo serviços de coleta e transporte de resíduos, consultoria técnica e licenciamento CETESB em Araras e região."
+  title="Enfoque Ambiental | Consultoria, Coleta e Transporte de Resíduos"
+  description="A Enfoque Ambiental trabalha há mais de 10 anos ajudando empresas a solucionar problemas ambientais através de projetos técnicos, licenciamento e transporte de resíduos em Araras e região."
   currentPath="/"
 >
   <HeroSlider />
 
-  <!-- Credenciais Técnicas -->
+  <!-- Credenciais Institucionais -->
   <section class="bg-[#003300] text-white py-6 border-b border-emerald-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center sm:text-left">
@@ -29,11 +28,11 @@ import ComplianceStrip from "../components/ComplianceStrip.astro";
 
         <div class="flex items-center gap-4 justify-center sm:justify-start">
           <div class="w-12 h-12 rounded-lg bg-emerald-900/60 flex items-center justify-center shrink-0 border border-emerald-700/40">
-            <i class="fa-solid fa-shield-halved text-[#a6d37e] text-2xl" aria-hidden="true"></i>
+            <i class="fa-solid fa-user-shield text-[#a6d37e] text-2xl" aria-hidden="true"></i>
           </div>
           <div>
-            <div class="font-bold text-lg text-white">Licenciamento</div>
-            <div class="text-xs text-emerald-200/80">CETESB, IBAMA e ANTT</div>
+            <div class="font-bold text-lg text-white">Corpo Técnico</div>
+            <div class="text-xs text-emerald-200/80">Engenharia e consultoria ambiental</div>
           </div>
         </div>
 
@@ -49,35 +48,50 @@ import ComplianceStrip from "../components/ComplianceStrip.astro";
 
         <div class="flex items-center gap-4 justify-center sm:justify-start">
           <div class="w-12 h-12 rounded-lg bg-emerald-900/60 flex items-center justify-center shrink-0 border border-emerald-700/40">
-            <i class="fa-solid fa-user-shield text-[#a6d37e] text-2xl" aria-hidden="true"></i>
+            <i class="fa-solid fa-shield-halved text-[#a6d37e] text-2xl" aria-hidden="true"></i>
           </div>
           <div>
-            <div class="font-bold text-lg text-white">Corpo Técnico</div>
-            <div class="text-xs text-emerald-200/80">Engenharia e consultoria ambiental</div>
+            <div class="font-bold text-lg text-white">Conformidade Legal</div>
+            <div class="text-xs text-emerald-200/80">Normas técnicas e órgãos vigentes</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Quem Somos -->
-  <section class="py-16 md:py-20 bg-white">
+  <!-- A Empresa (Quem Somos e Atuação) -->
+  <section class="py-16 md:py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div class="lg:col-span-7 space-y-6">
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#003300] tracking-tight leading-snug">
-            A Enfoque Ambiental trabalha há mais de 10 anos ajudando empresas a solucionar seus problemas ambientais.
-          </h2>
+          <div class="space-y-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-[#006400]">
+              Institucional
+            </span>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#003300] tracking-tight leading-snug">
+              A Enfoque Ambiental trabalha há mais de 10 anos ajudando empresas a solucionar seus problemas ambientais.
+            </h2>
+          </div>
 
           <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
-            Oferecemos serviços de coleta e transporte de resíduos, com equipamentos de última geração para atendimento do setor público ou privado.
+            A Enfoque Ambiental dispõe de corpo técnico especializado na elaboração e execução de projetos ligados à área de Engenharia Ambiental, notadamente nas áreas de Licenciamentos Ambientais e Controle de Poluição.
           </p>
 
           <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
-            Trabalhamos em total conformidade com regulamentos e normas técnicas aplicáveis em vigor.
+            Oferecemos serviços de coleta e transporte de resíduos, com equipamentos de última geração para atendimento do setor público ou privado, em total conformidade com regulamentos e normas técnicas aplicáveis em vigor.
           </p>
 
-          <div class="pt-2">
+          <!-- Meta Institucional -->
+          <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 space-y-2">
+            <h3 class="text-sm font-bold text-[#003300] uppercase tracking-wider">
+              Nossa Meta
+            </h3>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              Orientar empresas e entidades a planejarem suas atividades de forma compatível com a Legislação Ambiental e com a preservação do meio ambiente através de projetos ambientais, controle de poluição, tratamento de efluentes, gerenciamento e destinação final de resíduos e diagnósticos ambientais.
+            </p>
+          </div>
+
+          <div class="pt-2 flex flex-wrap gap-4">
             <a
               href="/contato"
               class="inline-flex items-center gap-2 bg-[#006400] hover:bg-[#004d00] text-white font-bold text-sm sm:text-base px-6 py-3 rounded-lg shadow-sm hover:shadow transition-all"
@@ -85,10 +99,17 @@ import ComplianceStrip from "../components/ComplianceStrip.astro";
               <i class="fa-regular fa-comment-dots text-[#a6d37e]" aria-hidden="true"></i>
               <span>Fale Conosco</span>
             </a>
+            <a
+              href="/empresa"
+              class="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-[#003300] hover:text-[#006400] px-4 py-3"
+            >
+              <span>Saiba mais sobre a empresa</span>
+              <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
 
-        <div class="lg:col-span-5">
+        <div class="lg:col-span-5 space-y-6">
           <div class="rounded-2xl overflow-hidden shadow-md border border-gray-200 bg-gray-100">
             <img
               src="/img/servico-transporte-residuo.webp"
@@ -96,6 +117,15 @@ import ComplianceStrip from "../components/ComplianceStrip.astro";
               class="w-full h-auto object-cover"
               loading="lazy"
             />
+          </div>
+
+          <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 space-y-3">
+            <h4 class="text-sm font-bold text-gray-900">
+              Estrutura e Localização
+            </h4>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              Sede e pátio operacional estruturados no Distrito Industrial de Araras/SP, com capacidade logística para atendimento regional a geradores industriais e comerciais.
+            </p>
           </div>
         </div>
       </div>
@@ -105,9 +135,6 @@ import ComplianceStrip from "../components/ComplianceStrip.astro";
   <!-- Serviços -->
   <ServiceMatrix />
 
-  <!-- Equipamentos -->
+  <!-- Equipamentos e Frota -->
   <FleetGrid />
-
-  <!-- Certificados -->
-  <ComplianceStrip />
 </Layout>
