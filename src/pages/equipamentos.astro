@@ -5,37 +5,37 @@ const fleet = [
   {
     name: "Caminhão Roll-On Roll-Off",
     icon: "fa-solid fa-truck-ramp-box",
-    description: "Transportes de carga a granel e resíduos industriais em caçambas específicas com sistema de báscula e guincho hidráulico.",
+    description: "Transportes de carga a granel e resíduos industriais.",
     tag: "Carga a Granel & Resíduos",
   },
   {
     name: "Caminhão Roll-On Roll-Off Romeu e Julieta",
     icon: "fa-solid fa-truck-moving",
-    description: "Transportes de carga a granel e resíduos industriais em alta capacidade volumétrica para rotas e operações pesadas.",
-    tag: "Grande Capacidade",
+    description: "Transportes de carga a granel e resíduos industriais.",
+    tag: "Alta Capacidade",
   },
   {
     name: "Caminhão Tanque",
     icon: "fa-solid fa-truck-droplet",
-    description: "Transportes de efluentes e resíduos líquidos industriais com tanque vedado e conexões anti-vazamento.",
+    description: "Transportes de efluentes.",
     tag: "Efluentes Líquidos",
   },
   {
     name: "Caminhão com Equipamento Auto Vácuo",
     icon: "fa-solid fa-arrow-down-up-across-line",
-    description: "Transportes e sucção de resíduos líquidos, lamas industriais e esgotamento de caixas separadoras.",
+    description: "Transportes de resíduos líquidos.",
     tag: "Auto Vácuo / Sucção",
   },
   {
     name: "Caminhão Plataforma",
     icon: "fa-solid fa-layer-group",
-    description: "Transportes de até 40 tambores de resíduos sólidos ou perigosos devidamente paletizados e amarrados.",
+    description: "Transportes de até 40 tambores.",
     tag: "Até 40 Tambores",
   },
   {
     name: "Caminhão com Hidrojateamento",
     icon: "fa-solid fa-water",
-    description: "Limpeza de fossa séptica, caixas de gordura e desobstrução de tubulações com água em altíssima pressão.",
+    description: "Limpeza de fossa séptica.",
     tag: "Limpeza de Fossas",
   },
 ];
@@ -43,22 +43,18 @@ const fleet = [
 
 <Layout
   title="Equipamentos | Enfoque Ambiental"
-  description="Conheça a frota e os equipamentos de última geração da Enfoque Ambiental: Roll-on Roll-off, Auto Vácuo, Tanque, Plataforma e Hidrojateamento."
+  description="Conheça a frota e os equipamentos da Enfoque Ambiental: Roll-on Roll-off, Auto Vácuo, Tanque, Plataforma e Hidrojateamento."
   currentPath="/equipamentos"
 >
   <!-- Page Header -->
   <section class="bg-[#003300] text-white py-12 md:py-16 border-b border-emerald-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="max-w-3xl space-y-3">
-        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#a6d37e]/20 text-[#a6d37e] text-xs font-bold uppercase tracking-wider">
-          <i class="fa-solid fa-truck" aria-hidden="true"></i>
-          <span>Frota Operacional</span>
-        </span>
+      <div class="max-w-3xl space-y-2">
         <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
           Nossos Equipamentos
         </h1>
         <p class="text-emerald-100/90 text-base sm:text-lg">
-          Equipamentos modernos e homologados para transporte com segurança, agilidade e respeito irrestrito às normas técnicas vigentes.
+          Equipamentos para transporte, coleta e destinação de resíduos em conformidade com as normas vigentes.
         </p>
       </div>
     </div>
@@ -69,18 +65,18 @@ const fleet = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {fleet.map((item, index) => (
-          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs hover:border-[#98c571] hover:shadow-md transition-all flex flex-col justify-between">
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs flex flex-col justify-between">
             <div class="space-y-4">
               <div class="flex items-center justify-between">
-                <div class="w-14 h-14 rounded-xl bg-[#003300] text-[#a6d37e] flex items-center justify-center shadow-xs">
-                  <i class={`${item.icon} text-2xl`} aria-hidden="true"></i>
+                <div class="w-12 h-12 rounded-xl bg-[#003300] text-[#a6d37e] flex items-center justify-center">
+                  <i class={`${item.icon} text-xl`} aria-hidden="true"></i>
                 </div>
-                <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-[#bfdba7]/40 text-[#003300]">
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-gray-100 text-gray-700">
                   Item {index + 1}
                 </span>
               </div>
 
-              <h2 class="text-xl font-bold text-gray-900">
+              <h2 class="text-lg font-bold text-gray-900">
                 {item.name}
               </h2>
 
@@ -97,7 +93,7 @@ const fleet = [
                 href="/contato"
                 class="text-xs font-bold text-[#006400] hover:text-[#003300] inline-flex items-center gap-1"
               >
-                <span>Consultar</span>
+                <span>Fale Conosco</span>
                 <i class="fa-solid fa-chevron-right text-[10px]" aria-hidden="true"></i>
               </a>
             </div>

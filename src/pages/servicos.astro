@@ -18,7 +18,7 @@ const services = [
     title: "Serviços de Consultoria e Assessoria",
     icon: "fa-solid fa-file-contract",
     image: "/img/servico-consultoria-ambiental.png",
-    description: "Assessoria técnica especializada perante órgãos ambientais reguladores municipais, estaduais e federais.",
+    description: "Assessoria técnica perante órgãos ambientais reguladores municipais, estaduais e federais.",
     items: [
       "Licenciamento ambiental junto à CETESB (LP, LI, LO e CDL)",
       "Solicitação e renovação de CADRI junto à CETESB",
@@ -31,11 +31,11 @@ const services = [
     title: "Serviços de Gerenciamento",
     icon: "fa-solid fa-list-check",
     image: "/img/slides/slide3.png",
-    description: "Gestão integrada de resíduos na fonte geradora, minimizando impactos e assegurando total conformidade jurídica e fiscal.",
+    description: "Gestão de resíduos na fonte geradora, minimizando impactos e assegurando conformidade com normas técnicas aplicáveis em vigor.",
     items: [
       "Classificação e caracterização de resíduos industriais",
       "Implantação de coleta seletiva e procedimentos operacionais",
-      "Controle de manifesto de transporte e rastreabilidade total",
+      "Controle de manifesto de transporte e rastreabilidade",
     ],
   },
 ];
@@ -43,22 +43,18 @@ const services = [
 
 <Layout
   title="Serviços | Enfoque Ambiental"
-  description="Conheça os serviços de coleta, transporte de resíduos, hidrojateamento, licenciamento CETESB e consultoria ambiental da Enfoque Ambiental."
+  description="Serviços de coleta e transporte de resíduos, hidrojateamento, licenciamento CETESB e consultoria ambiental."
   currentPath="/servicos"
 >
   <!-- Page Header -->
   <section class="bg-[#003300] text-white py-12 md:py-16 border-b border-emerald-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="max-w-3xl space-y-3">
-        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#a6d37e]/20 text-[#a6d37e] text-xs font-bold uppercase tracking-wider">
-          <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
-          <span>Portfólio de Atuação</span>
-        </span>
+      <div class="max-w-3xl space-y-2">
         <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
           Nossos Serviços
         </h1>
         <p class="text-emerald-100/90 text-base sm:text-lg">
-          Soluções completas e integradas para regularização ambiental, transporte especializado e descarte de resíduos industriais.
+          Serviços de transporte de resíduos, consultoria técnica e gerenciamento ambiental.
         </p>
       </div>
     </div>
@@ -69,7 +65,7 @@ const services = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {services.map((serv) => (
-          <div class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between">
+          <div class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-xs flex flex-col justify-between">
             <div>
               <div class="h-48 overflow-hidden bg-gray-100 relative">
                 <img
@@ -110,7 +106,7 @@ const services = [
                 href="/contato"
                 class="inline-flex items-center justify-center gap-2 w-full bg-[#006400] hover:bg-[#004d00] text-white font-semibold text-sm py-2.5 rounded-lg transition-colors"
               >
-                <span>Solicitar Proposta</span>
+                <span>Fale Conosco</span>
                 <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
               </a>
             </div>

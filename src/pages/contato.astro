@@ -3,23 +3,19 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
-  title="Contato | Enfoque Ambiental"
-  description="Entre em contato com a Enfoque Ambiental. Solicite orçamentos para coleta de resíduos, consultoria técnica e destinação final homologada."
+  title="Fale Conosco | Enfoque Ambiental"
+  description="Entre em contato com a Enfoque Ambiental para coleta e transporte de resíduos e consultoria ambiental."
   currentPath="/contato"
 >
   <!-- Page Header -->
   <section class="bg-[#003300] text-white py-12 md:py-16 border-b border-emerald-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="max-w-3xl space-y-3">
-        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#a6d37e]/20 text-[#a6d37e] text-xs font-bold uppercase tracking-wider">
-          <i class="fa-solid fa-headset" aria-hidden="true"></i>
-          <span>Fale Conosco</span>
-        </span>
+      <div class="max-w-3xl space-y-2">
         <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
-          Central de Contato
+          Fale Conosco
         </h1>
         <p class="text-emerald-100/90 text-base sm:text-lg">
-          Nossa equipe técnica está pronta para atender sua demanda com agilidade e respaldo legal.
+          Entre em contato através dos telefones, e-mail ou pelo formulário abaixo.
         </p>
       </div>
     </div>
@@ -65,20 +61,20 @@ import Layout from "../layouts/Layout.astro";
           <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-xs">
             <h3 class="text-xl font-bold text-[#003300] mb-6 flex items-center gap-2">
               <i class="fa-solid fa-file-pen text-[#006400]" aria-hidden="true"></i>
-              <span>Envie sua Mensagem ou Solicitação</span>
+              <span>Envie sua Mensagem</span>
             </h3>
 
-            <form class="space-y-4" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');">
+            <form class="space-y-4" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! Entraremos em contato.');">
               <div>
                 <label for="name" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
-                  Nome Completo / Empresa
+                  Nome / Empresa
                 </label>
                 <input
                   type="text"
                   id="name"
                   name="name"
                   required
-                  placeholder="Seu nome ou razão social"
+                  placeholder="Seu nome ou empresa"
                   class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006400] focus:border-transparent outline-hidden text-sm"
                 />
               </div>
@@ -93,14 +89,14 @@ import Layout from "../layouts/Layout.astro";
                     id="email"
                     name="email"
                     required
-                    placeholder="exemplo@empresa.com.br"
+                    placeholder="email@empresa.com.br"
                     class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006400] focus:border-transparent outline-hidden text-sm"
                   />
                 </div>
 
                 <div>
                   <label for="phone" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
-                    Telefone / WhatsApp
+                    Telefone
                   </label>
                   <input
                     type="tel"
@@ -115,7 +111,7 @@ import Layout from "../layouts/Layout.astro";
 
               <div>
                 <label for="service" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
-                  Serviço de Interesse
+                  Assunto
                 </label>
                 <select
                   id="service"
@@ -124,23 +120,21 @@ import Layout from "../layouts/Layout.astro";
                 >
                   <option value="coleta">Coleta e Transporte de Resíduos</option>
                   <option value="consultoria">Consultoria e Licenciamento CETESB</option>
-                  <option value="cadri">Solicitação de CADRI / IBAMA</option>
-                  <option value="hidro">Hidrojateamento / Auto Vácuo</option>
-                  <option value="gerenciamento">Gerenciamento Total de Resíduos</option>
-                  <option value="outro">Outros Assuntos</option>
+                  <option value="gerenciamento">Gerenciamento de Resíduos</option>
+                  <option value="outro">Outros</option>
                 </select>
               </div>
 
               <div>
                 <label for="message" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
-                  Descrição da Demanda
+                  Mensagem
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   rows="4"
                   required
-                  placeholder="Informe os tipos de resíduos gerados, volume ou a licença necessária..."
+                  placeholder="Escreva sua mensagem..."
                   class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006400] focus:border-transparent outline-hidden text-sm"
                 ></textarea>
               </div>
@@ -150,7 +144,7 @@ import Layout from "../layouts/Layout.astro";
                 class="w-full bg-[#006400] hover:bg-[#004d00] text-white font-bold py-3 px-6 rounded-lg shadow-sm hover:shadow transition-all flex items-center justify-center gap-2"
               >
                 <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
-                <span>Enviar Solicitação</span>
+                <span>Fale Conosco</span>
               </button>
             </form>
           </div>
@@ -164,13 +158,10 @@ import Layout from "../layouts/Layout.astro";
                 <i class="fa-solid fa-map-location-dot text-xl" aria-hidden="true"></i>
               </div>
               <div>
-                <h3 class="font-bold text-gray-900 text-lg">Sede Operacional</h3>
+                <h3 class="font-bold text-gray-900 text-lg">Sede</h3>
                 <p class="text-sm text-gray-600 mt-1 leading-relaxed">
                   Rua Ruperto Malaman, 380 • Distrito Industrial<br />
                   Araras - SP • CEP 13602-104
-                </p>
-                <p class="text-xs text-gray-500 mt-1">
-                  Horário de atendimento comercial: Segunda a Sexta das 08h às 18h.
                 </p>
               </div>
             </div>

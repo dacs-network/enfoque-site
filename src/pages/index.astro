@@ -6,92 +6,89 @@ const slides = [
   {
     image: "/img/slides/slide1.png",
     alt: "Serviços de Consultoria e Assessoria Ambiental",
-    title: "Consultoria e Assessoria Ambiental Especializada",
+    title: "Consultoria e Assessoria Ambiental",
     subtitle: "Licenciamento junto à CETESB, CADRI, IBAMA, DAEE e elaboração de normas e projetos técnicos.",
-    href: "/servicos",
-    cta: "Conhecer Consultoria",
+    href: "/contato",
   },
   {
     image: "/img/slides/slide2.png",
-    alt: "Coleta e Transporte de Resíduos Perigosos e Não Perigosos",
-    title: "Coleta e Transporte Seguro de Resíduos",
-    subtitle: "Atendimento especializado a resíduos Classe I (perigosos) e Classe II, efluentes industriais e produtos químicos.",
-    href: "/servicos",
-    cta: "Ver Transporte de Resíduos",
+    alt: "Coleta e Transporte de Resíduos",
+    title: "Coleta e Transporte de Resíduos",
+    subtitle: "Atendimento a resíduos Classe I e Classe II, efluentes industriais e acidentes com produtos químicos.",
+    href: "/contato",
   },
   {
     image: "/img/slides/slide3.png",
-    alt: "Gerenciamento Global e Destinação de Resíduos",
-    title: "Gerenciamento e Destinação Final Homologada",
-    subtitle: "Rastreabilidade e conformidade integral com regulamentos e normas técnicas aplicáveis em vigor.",
-    href: "/servicos",
-    cta: "Serviços de Gerenciamento",
+    alt: "Gerenciamento de Resíduos",
+    title: "Gerenciamento de Resíduos",
+    subtitle: "Conformidade com regulamentos e normas técnicas aplicáveis em vigor.",
+    href: "/contato",
   },
 ];
 
-// Principais serviços destacados (Original Box 2)
+// Principais serviços (conteudo.md 2.1)
 const featuredServices = [
   {
     icon: "fa-solid fa-boxes-stacked",
     title: "Gerenciamento de Resíduos",
-    description: "Diagnóstico, classificação, acondicionamento, controle e destinação correta conforme as diretrizes ambientais vigentes.",
+    description: "Classificação, acondicionamento, controle e destinação correta de resíduos industriais.",
     href: "/servicos",
   },
   {
     icon: "fa-solid fa-truck-moving",
     title: "Coleta e Transporte de Resíduos",
-    description: "Transporte com frota própria para resíduos industriais Classe I e II, efluentes líquidos e pronto atendimento a contingências.",
+    description: "Transporte de resíduos Classe I (perigosos) e Classe II, efluentes industriais e caçambas.",
     href: "/servicos",
   },
   {
     icon: "fa-solid fa-file-signature",
     title: "Consultoria e Assessoria Ambiental",
-    description: "Licenças prévias, de instalação e operação na CETESB, solicitação de CADRI, outorgas DAEE e cadastros federais no IBAMA.",
+    description: "Licenciamento ambiental e CADRI junto à CETESB, cadastros no IBAMA e outorgas DAEE.",
     href: "/servicos",
   },
   {
     icon: "fa-solid fa-book-bookmark",
     title: "Elaboração de Normas e Manuais",
-    description: "Planos de Gerenciamento de Resíduos Sólidos (PGRS), planos de contingência e procedimentos operacionais padronizados.",
+    description: "Planos de Gerenciamento de Resíduos Sólidos (PGRS) e documentação técnica para transporte.",
     href: "/servicos",
   },
 ];
 
-// Equipamentos em destaque (Original Box 3)
+// Equipamentos (conteudo.md 2.5)
 const featuredEquipment = [
   {
     icon: "fa-solid fa-truck-ramp-box",
     name: "Caminhão Roll-On Roll-Off",
-    use: "Transportes de carga a granel e resíduos industriais em caçambas específicas.",
+    use: "Transportes de carga a granel e resíduos industriais.",
   },
   {
     icon: "fa-solid fa-truck-moving",
-    name: "Roll-On Roll-Off Romeu e Julieta",
-    use: "Alta capacidade volumétrica de carga para grandes demandas industriais de resíduos sólidos.",
+    name: "Caminhão Roll-On Roll-Off Romeu e Julieta",
+    use: "Transportes de carga a granel e resíduos industriais.",
   },
   {
     icon: "fa-solid fa-truck-droplet",
     name: "Caminhão Tanque",
-    use: "Transporte seguro e homologado de efluentes líquidos industriais para locais licenciados.",
+    use: "Transportes de efluentes industriais.",
   },
   {
     icon: "fa-solid fa-arrow-down-up-across-line",
-    name: "Equipamento Auto Vácuo",
-    use: "Sucção técnica e transporte de resíduos líquidos e pastosos acumulados em caixas e reservatórios.",
+    name: "Caminhão com Equipamento Auto Vácuo",
+    use: "Transportes de resíduos líquidos.",
   },
   {
     icon: "fa-solid fa-layer-group",
     name: "Caminhão Plataforma",
-    use: "Transporte seguro e estável de até 40 tambores de produtos químicos e resíduos perigosos.",
+    use: "Transportes de até 40 tambores.",
   },
   {
     icon: "fa-solid fa-water",
     name: "Caminhão com Hidrojateamento",
-    use: "Desobstrução de redes industriais, canaletas e limpeza técnica de fossas sépticas.",
+    use: "Limpeza de fossa séptica.",
   },
 ];
 
-// Certificações & Órgãos Reguladores
+// Certificados (conteudo.md 2.6)
 const certifications = [
   {
     name: "CETESB",
@@ -101,35 +98,34 @@ const certifications = [
   {
     name: "IBAMA",
     image: "/img/logotipos/ibama.jpg",
-    details: "Certificado de Regularidade e Autorização para Transporte de Cargas Perigosas",
+    details: "Certificado de Regularidade e Transporte de Produtos Perigosos",
   },
   {
     name: "ANTT",
     image: "/img/logotipos/antt.jpg",
-    details: "Certificado e Registro Nacional de Transportadores Rodoviários de Carga (RNTRC)",
+    details: "Certificado e Registro Nacional de Transportadores Rodoviários (RNTRC)",
   },
   {
-    name: "AVCB - Bombeiros",
+    name: "AVCB",
     image: "/img/logotipos/avcb.jpg",
-    details: "Auto de Vistoria do Corpo de Bombeiros atestando conformidade predial e segurança",
+    details: "Auto de Vistoria do Corpo de Bombeiros",
   },
   {
-    name: "Alvará Municipal",
+    name: "Alvará",
     image: "/img/logotipos/alvara.jpg",
-    details: "Alvará de Funcionamento e Localização da Prefeitura Municipal de Araras",
+    details: "Alvará de Funcionamento e Localização",
   },
 ];
 ---
 
 <Layout
-  title="Enfoque Ambiental | Consultoria, Transporte e Engenharia Ambiental"
-  description="A Enfoque Ambiental trabalha há mais de 10 anos ajudando empresas a solucionar problemas ambientais com coleta, transporte de resíduos e consultoria técnica."
+  title="Enfoque Ambiental | Coleta, Transporte e Consultoria Ambiental"
+  description="A Enfoque Ambiental trabalha há mais de 10 anos oferecendo serviços de coleta e transporte de resíduos, consultoria técnica e licenciamento CETESB em Araras e região."
   currentPath="/"
 >
-  <!-- 1. HERO SLIDESHOW SECTION -->
-  <section class="relative bg-emerald-950 overflow-hidden" aria-label="Apresentação em Destaque">
-    <!-- Carousel Wrapper -->
-    <div id="hero-carousel" class="relative w-full overflow-hidden min-h-[400px] sm:min-h-[460px] md:min-h-[520px]">
+  <!-- 1. HERO SLIDESHOW -->
+  <section class="relative bg-emerald-950 overflow-hidden" aria-label="Slideshow">
+    <div id="hero-carousel" class="relative w-full overflow-hidden min-h-[380px] sm:min-h-[440px] md:min-h-[500px]">
       {slides.map((slide, index) => (
         <div
           class={`carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out flex items-center ${
@@ -137,7 +133,6 @@ const certifications = [
           }`}
           data-slide-index={index}
         >
-          <!-- Background Image with Gradient Overlay -->
           <div class="absolute inset-0">
             <img
               src={slide.image}
@@ -148,37 +143,23 @@ const certifications = [
             <div class="absolute inset-0 bg-gradient-to-r from-[#003300]/95 via-[#003300]/80 to-transparent"></div>
           </div>
 
-          <!-- Slide Text Content -->
           <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-20 w-full">
             <div class="max-w-2xl text-white space-y-4">
-              <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#a6d37e]/20 text-[#a6d37e] text-xs sm:text-sm font-bold border border-[#a6d37e]/30">
-                <i class="fa-solid fa-leaf" aria-hidden="true"></i>
-                <span>Enfoque Ambiental • Engenharia & Gestão</span>
-              </span>
-
-              <h1 class="text-2xl sm:text-3xl md:text-5xl font-extrabold leading-tight text-white tracking-tight drop-shadow-xs">
+              <h1 class="text-2xl sm:text-3xl md:text-5xl font-extrabold leading-tight text-white tracking-tight">
                 {slide.title}
               </h1>
 
-              <p class="text-sm sm:text-base md:text-lg text-emerald-100/90 leading-relaxed drop-shadow-xs">
+              <p class="text-sm sm:text-base md:text-lg text-emerald-100/90 leading-relaxed">
                 {slide.subtitle}
               </p>
 
-              <div class="pt-3 flex flex-wrap gap-3">
-                <a
-                  href={slide.href}
-                  class="inline-flex items-center gap-2 bg-[#006400] hover:bg-[#004d00] text-white font-bold text-sm sm:text-base px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5"
-                >
-                  <span>{slide.cta}</span>
-                  <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
-                </a>
-
+              <div class="pt-2">
                 <a
                   href="/contato"
-                  class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold text-sm sm:text-base px-5 py-3 rounded-lg border border-white/30 backdrop-blur-xs transition-colors"
+                  class="inline-flex items-center gap-2 bg-[#006400] hover:bg-[#004d00] text-white font-bold text-sm sm:text-base px-6 py-3 rounded-lg shadow-sm hover:shadow transition-all"
                 >
-                  <i class="fa-solid fa-headset text-[#a6d37e]" aria-hidden="true"></i>
-                  <span>Falar com Técnico</span>
+                  <i class="fa-regular fa-comment-dots text-[#a6d37e]" aria-hidden="true"></i>
+                  <span>Fale Conosco</span>
                 </a>
               </div>
             </div>
@@ -190,7 +171,7 @@ const certifications = [
       <button
         id="carousel-prev"
         type="button"
-        class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center transition-colors backdrop-blur-xs focus:outline-hidden focus:ring-2 focus:ring-[#a6d37e]"
+        class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center transition-colors backdrop-blur-xs"
         aria-label="Slide anterior"
       >
         <i class="fa-solid fa-chevron-left text-base sm:text-lg" aria-hidden="true"></i>
@@ -199,7 +180,7 @@ const certifications = [
       <button
         id="carousel-next"
         type="button"
-        class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center transition-colors backdrop-blur-xs focus:outline-hidden focus:ring-2 focus:ring-[#a6d37e]"
+        class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center transition-colors backdrop-blur-xs"
         aria-label="Próximo slide"
       >
         <i class="fa-solid fa-chevron-right text-base sm:text-lg" aria-hidden="true"></i>
@@ -221,7 +202,7 @@ const certifications = [
     </div>
   </section>
 
-  <!-- 2. QUICK CREDIBILITY STRIP -->
+  <!-- 2. INFORMAÇÕES OPERACIONAIS -->
   <section class="bg-[#003300] text-white py-6 border-b border-emerald-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center sm:text-left">
@@ -230,8 +211,8 @@ const certifications = [
             <i class="fa-solid fa-calendar-check text-[#a6d37e] text-2xl" aria-hidden="true"></i>
           </div>
           <div>
-            <div class="font-bold text-lg text-white">+10 Anos de Mercado</div>
-            <div class="text-xs text-emerald-200/80">Experiência e tradição técnica</div>
+            <div class="font-bold text-lg text-white">+10 Anos de Atuação</div>
+            <div class="text-xs text-emerald-200/80">Sede e pátio em Araras/SP</div>
           </div>
         </div>
 
@@ -240,8 +221,8 @@ const certifications = [
             <i class="fa-solid fa-shield-halved text-[#a6d37e] text-2xl" aria-hidden="true"></i>
           </div>
           <div>
-            <div class="font-bold text-lg text-white">100% Homologada</div>
-            <div class="text-xs text-emerald-200/80">CETESB, IBAMA, ANTT e AVCB</div>
+            <div class="font-bold text-lg text-white">Licenciamento</div>
+            <div class="text-xs text-emerald-200/80">CETESB, IBAMA e ANTT</div>
           </div>
         </div>
 
@@ -251,7 +232,7 @@ const certifications = [
           </div>
           <div>
             <div class="font-bold text-lg text-white">Frota Própria</div>
-            <div class="text-xs text-emerald-200/80">Equipamentos de última geração</div>
+            <div class="text-xs text-emerald-200/80">Veículos coletores e transportadores</div>
           </div>
         </div>
 
@@ -260,25 +241,20 @@ const certifications = [
             <i class="fa-solid fa-user-shield text-[#a6d37e] text-2xl" aria-hidden="true"></i>
           </div>
           <div>
-            <div class="font-bold text-lg text-white">Corpo Especializado</div>
-            <div class="text-xs text-emerald-200/80">Engenharia e consultoria legal</div>
+            <div class="font-bold text-lg text-white">Corpo Técnico</div>
+            <div class="text-xs text-emerald-200/80">Engenharia e consultoria ambiental</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 3. QUEM SOMOS / INSTITUCIONAL (Original Box 1) -->
-  <section class="py-16 md:py-24 bg-white">
+  <!-- 3. QUEM SOMOS (conteudo.md 2.1 Bloco 1) -->
+  <section class="py-16 md:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <!-- Text Column -->
         <div class="lg:col-span-7 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#bfdba7]/40 text-[#003300] font-bold text-sm">
-            <i class="fa-solid fa-building text-[#006400]" aria-hidden="true"></i>
-            <span>Quem Somos</span>
-          </div>
-
           <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#003300] tracking-tight leading-snug">
             A Enfoque Ambiental trabalha há mais de 10 anos ajudando empresas a solucionar seus problemas ambientais.
           </h2>
@@ -287,90 +263,57 @@ const certifications = [
             Oferecemos serviços de coleta e transporte de resíduos, com equipamentos de última geração para atendimento do setor público ou privado.
           </p>
 
-          <p class="text-gray-700 text-base sm:text-lg leading-relaxed font-medium">
+          <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
             Trabalhamos em total conformidade com regulamentos e normas técnicas aplicáveis em vigor.
           </p>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-            <div class="flex items-start gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100">
-              <i class="fa-solid fa-circle-check text-[#006400] text-xl mt-0.5" aria-hidden="true"></i>
-              <div>
-                <h3 class="font-bold text-gray-900 text-sm">Responsabilidade Legal</h3>
-                <p class="text-xs text-gray-600 mt-1">Conformidade total com a legislação ambiental estadual e federal vigente.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100">
-              <i class="fa-solid fa-certificate text-[#006400] text-xl mt-0.5" aria-hidden="true"></i>
-              <div>
-                <h3 class="font-bold text-gray-900 text-sm">Rastreabilidade Total</h3>
-                <p class="text-xs text-gray-600 mt-1">Garantia documental e destinação em áreas devidamente homologadas pela CETESB.</p>
-              </div>
-            </div>
-          </div>
-
           <div class="pt-2">
             <a
-              href="/empresa"
-              class="inline-flex items-center gap-2 text-[#006400] hover:text-[#003300] font-bold text-base group"
+              href="/contato"
+              class="inline-flex items-center gap-2 bg-[#006400] hover:bg-[#004d00] text-white font-bold text-sm sm:text-base px-6 py-3 rounded-lg shadow-sm hover:shadow transition-all"
             >
-              <span>Conheça nossa trajetória e missão institucional</span>
-              <i class="fa-solid fa-arrow-right text-sm transform group-hover:translate-x-1 transition-transform" aria-hidden="true"></i>
+              <i class="fa-regular fa-comment-dots text-[#a6d37e]" aria-hidden="true"></i>
+              <span>Fale Conosco</span>
             </a>
           </div>
         </div>
 
-        <!-- Visual Column / Real Service Image -->
-        <div class="lg:col-span-5 relative">
-          <div class="rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-gray-100">
+        <!-- Real Image -->
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl overflow-hidden shadow-md border border-gray-200 bg-gray-100">
             <img
               src="/img/servico-transporte-residuo.jpg"
-              alt="Operação de Coleta e Transporte de Resíduos da Enfoque Ambiental"
+              alt="Coleta e Transporte de Resíduos Enfoque Ambiental"
               class="w-full h-auto object-cover"
               loading="lazy"
             />
-          </div>
-
-          <!-- Highlight Card -->
-          <div class="absolute -bottom-6 -left-4 sm:-left-6 bg-[#003300] text-white p-5 rounded-xl shadow-lg border border-emerald-800 max-w-xs">
-            <div class="flex items-center gap-3">
-              <i class="fa-solid fa-award text-[#a6d37e] text-3xl" aria-hidden="true"></i>
-              <div>
-                <p class="text-xl font-extrabold text-white">Segurança Técnica</p>
-                <p class="text-xs text-emerald-200">Equipe qualificada e pátio próprio</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 4. SERVIÇOS EM DESTAQUE (Original Box 2) -->
-  <section class="py-16 md:py-24 bg-gray-50 border-y border-gray-200" aria-labelledby="services-heading">
+  <!-- 4. SERVIÇOS (conteudo.md 2.1 Bloco 2) -->
+  <section class="py-16 md:py-20 bg-gray-50 border-y border-gray-200" aria-labelledby="services-heading">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16 space-y-3">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#bfdba7]/40 text-[#003300] font-bold text-sm">
-          <i class="fa-solid fa-list-check text-[#006400]" aria-hidden="true"></i>
-          <span>Atuação Completa</span>
-        </div>
-        <h2 id="services-heading" class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#003300] tracking-tight">
+      <div class="max-w-3xl mb-12 space-y-2">
+        <h2 id="services-heading" class="text-2xl sm:text-3xl font-extrabold text-[#003300] tracking-tight">
           Principais Serviços Oferecidos
         </h2>
-        <p class="text-gray-600 text-base sm:text-lg">
-          Atendemos empresas e indústrias de todos os portes com rigor técnico, pontualidade e documentação completa para auditorias.
+        <p class="text-gray-600 text-base">
+          Entre os principais serviços oferecidos pela Enfoque Ambiental estão:
         </p>
       </div>
 
       <!-- Services Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {featuredServices.map((service) => (
-          <div class="bg-white p-6 rounded-xl border border-gray-200/80 shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between group hover:border-[#98c571]">
+          <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-xs flex flex-col justify-between hover:border-[#98c571] transition-colors">
             <div class="space-y-4">
-              <div class="w-14 h-14 rounded-xl bg-[#003300]/10 flex items-center justify-center text-[#003300] group-hover:bg-[#003300] group-hover:text-white transition-colors duration-200">
-                <i class={`${service.icon} text-2xl`} aria-hidden="true"></i>
+              <div class="w-12 h-12 rounded-xl bg-[#003300]/10 flex items-center justify-center text-[#003300]">
+                <i class={`${service.icon} text-xl`} aria-hidden="true"></i>
               </div>
-              <h3 class="text-xl font-bold text-gray-900 group-hover:text-[#003300] transition-colors">
+              <h3 class="text-lg font-bold text-gray-900">
                 {service.title}
               </h3>
               <p class="text-gray-600 text-sm leading-relaxed">
@@ -378,66 +321,43 @@ const certifications = [
               </p>
             </div>
 
-            <div class="pt-6 mt-4 border-t border-gray-100">
+            <div class="pt-4 mt-4 border-t border-gray-100">
               <a
                 href={service.href}
-                class="inline-flex items-center gap-2 text-sm font-bold text-[#006400] hover:text-[#003300]"
+                class="inline-flex items-center gap-1.5 text-xs font-bold text-[#006400] hover:text-[#003300]"
               >
-                <span>Saiba mais</span>
-                <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+                <span>Conhecer detalhes</span>
+                <i class="fa-solid fa-chevron-right text-[10px]" aria-hidden="true"></i>
               </a>
             </div>
           </div>
         ))}
       </div>
-
-      <!-- Full Services Banner CTA -->
-      <div class="mt-12 bg-white rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-6">
-        <div class="space-y-1 text-center sm:text-left">
-          <h4 class="text-lg font-bold text-gray-900">
-            Precisa de soluções em Consultoria, Licenciamento ou Transporte Especializado?
-          </h4>
-          <p class="text-sm text-gray-600">
-            Consulte nossa relação completa de atividades e licenças operacionais.
-          </p>
-        </div>
-        <a
-          href="/servicos"
-          class="shrink-0 inline-flex items-center gap-2 bg-[#006400] hover:bg-[#004d00] text-white font-bold px-6 py-3 rounded-lg shadow-xs hover:shadow transition-all"
-        >
-          <span>Ver Todos os Serviços</span>
-          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-        </a>
-      </div>
     </div>
   </section>
 
-  <!-- 5. EQUIPAMENTOS DE ÚLTIMA GERAÇÃO (Original Box 3) -->
-  <section class="py-16 md:py-24 bg-white" aria-labelledby="equipment-heading">
+  <!-- 5. EQUIPAMENTOS (conteudo.md 2.1 Bloco 3 & 2.5) -->
+  <section class="py-16 md:py-20 bg-white" aria-labelledby="equipment-heading">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16 space-y-3">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#bfdba7]/40 text-[#003300] font-bold text-sm">
-          <i class="fa-solid fa-truck text-[#006400]" aria-hidden="true"></i>
-          <span>Frota & Tecnologia</span>
-        </div>
-        <h2 id="equipment-heading" class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#003300] tracking-tight">
-          Equipamentos de Última Geração
+      <div class="max-w-3xl mb-12 space-y-2">
+        <h2 id="equipment-heading" class="text-2xl sm:text-3xl font-extrabold text-[#003300] tracking-tight">
+          Nossos Equipamentos
         </h2>
-        <p class="text-gray-600 text-base sm:text-lg">
-          Contamos com frota e maquinário preparados para atender com agilidade e total segurança técnica às demandas operacionais mais exigentes.
+        <p class="text-gray-600 text-base">
+          A Enfoque Ambiental conta com equipamentos para atendimento do setor público e privado:
         </p>
       </div>
 
       <!-- Equipment Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {featuredEquipment.map((eq) => (
-          <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:border-[#98c571] hover:bg-white hover:shadow-md transition-all duration-200">
+          <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
             <div class="flex items-start gap-4">
-              <div class="w-12 h-12 rounded-lg bg-[#003300] text-[#a6d37e] flex items-center justify-center shrink-0">
-                <i class={`${eq.icon} text-xl`} aria-hidden="true"></i>
+              <div class="w-10 h-10 rounded-lg bg-[#003300] text-[#a6d37e] flex items-center justify-center shrink-0">
+                <i class={`${eq.icon} text-lg`} aria-hidden="true"></i>
               </div>
               <div class="space-y-1">
-                <h3 class="text-lg font-bold text-gray-900">
+                <h3 class="text-base font-bold text-gray-900">
                   {eq.name}
                 </h3>
                 <p class="text-sm text-gray-600 leading-relaxed">
@@ -448,103 +368,80 @@ const certifications = [
           </div>
         ))}
       </div>
-
-      <!-- Full Equipment CTA -->
-      <div class="text-center mt-10">
-        <a
-          href="/equipamentos"
-          class="inline-flex items-center gap-2 bg-[#003300] hover:bg-[#002200] text-white font-bold px-8 py-3.5 rounded-lg shadow-xs hover:shadow transition-all"
-        >
-          <i class="fa-solid fa-truck-moving text-[#a6d37e]" aria-hidden="true"></i>
-          <span>Conhecer Todos os Equipamentos Utilizados</span>
-          <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
-        </a>
-      </div>
     </div>
   </section>
 
-  <!-- 6. CERTIFICADOS & CONFORMIDADE REGULATÓRIA -->
+  <!-- 6. CERTIFICADOS (conteudo.md 2.6) -->
   <section class="py-16 md:py-20 bg-gray-50 border-t border-gray-200" aria-labelledby="certs-heading">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#bfdba7]/40 text-[#003300] font-bold text-sm">
-          <i class="fa-solid fa-stamp text-[#006400]" aria-hidden="true"></i>
-          <span>Segurança Jurídica</span>
-        </div>
-        <h2 id="certs-heading" class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#003300] tracking-tight">
-          Certificados, Licenças e Homologações
+      <div class="max-w-3xl mb-10 space-y-2">
+        <h2 id="certs-heading" class="text-2xl sm:text-3xl font-extrabold text-[#003300] tracking-tight">
+          Certificados e Licenças
         </h2>
         <p class="text-gray-600 text-sm sm:text-base">
-          Trabalhe com a certeza da conformidade. Mantemos regularidade permanente perante os principais órgãos fiscalizadores.
+          Regularidade perante os órgãos fiscalizadores aplicáveis em vigor.
         </p>
       </div>
 
       <!-- Certifications Cards Grid -->
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
         {certifications.map((cert) => (
-          <div class="bg-white p-4 sm:p-5 rounded-xl border border-gray-200 shadow-xs flex flex-col items-center text-center space-y-3 hover:shadow-md transition-shadow">
-            <div class="h-16 flex items-center justify-center">
+          <div class="bg-white p-4 sm:p-5 rounded-xl border border-gray-200 shadow-xs flex flex-col items-center text-center space-y-3">
+            <div class="h-14 flex items-center justify-center">
               <img
                 src={cert.image}
                 alt={`Certificado ${cert.name}`}
-                class="max-h-14 max-w-full object-contain filter hover:brightness-105 transition-all"
+                class="max-h-12 max-w-full object-contain"
                 loading="lazy"
               />
             </div>
             <div class="w-full pt-2 border-t border-gray-100">
-              <span class="font-bold text-sm sm:text-base text-gray-900 block">{cert.name}</span>
+              <span class="font-bold text-sm text-gray-900 block">{cert.name}</span>
               <span class="text-xs text-gray-500 line-clamp-2 mt-0.5">{cert.details}</span>
             </div>
           </div>
         ))}
       </div>
 
-      <div class="text-center mt-8">
+      <div class="mt-6">
         <a
           href="/certificados"
-          class="inline-flex items-center gap-2 text-sm font-bold text-[#006400] hover:text-[#003300] hover:underline"
+          class="inline-flex items-center gap-1.5 text-xs font-bold text-[#006400] hover:text-[#003300]"
         >
-          <span>Visualizar e baixar os documentos comprobatórios</span>
-          <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+          <span>Visualizar documentação</span>
+          <i class="fa-solid fa-chevron-right text-[10px]" aria-hidden="true"></i>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- 7. CTA / CONTACT BLOCK -->
-  <section class="py-16 md:py-20 bg-[#003300] text-white relative overflow-hidden" aria-labelledby="cta-heading">
-    <!-- Background Decorator -->
-    <div class="absolute right-0 top-0 bottom-0 w-1/3 bg-emerald-900/20 pointer-events-none transform skew-x-12"></div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        <div class="lg:col-span-8 space-y-4 text-center lg:text-left">
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#a6d37e]/20 text-[#a6d37e] text-xs font-bold uppercase tracking-wider">
-            <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
-            <span>Atendimento Rápido e Orçamentos</span>
-          </span>
-          <h2 id="cta-heading" class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white leading-tight">
-            Sua empresa em conformidade com o meio ambiente.
+  <!-- 7. FALE CONOSCO -->
+  <section class="py-14 md:py-16 bg-[#003300] text-white" aria-labelledby="cta-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-2 text-center md:text-left">
+          <h2 id="cta-heading" class="text-2xl sm:text-3xl font-extrabold text-white">
+            Fale Conosco
           </h2>
-          <p class="text-emerald-100/90 text-sm sm:text-base max-w-2xl leading-relaxed">
-            Entre em contato com nossa equipe técnica para diagnóstico ambiental, coleta de resíduos ou regularização de licenças junto à CETESB e IBAMA.
+          <p class="text-emerald-100/90 text-sm sm:text-base max-w-2xl">
+            Entre em contato para coleta de resíduos, serviços de transporte ou consultoria ambiental.
           </p>
         </div>
 
-        <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 justify-center">
+        <div class="flex flex-wrap gap-4 items-center justify-center">
           <a
             href="/contato"
-            class="inline-flex items-center justify-center gap-2 bg-[#006400] hover:bg-[#004d00] text-white font-bold text-base px-6 py-3.5 rounded-lg shadow-md hover:shadow-lg transition-all text-center"
+            class="inline-flex items-center gap-2 bg-[#006400] hover:bg-[#004d00] text-white font-bold text-base px-6 py-3 rounded-lg shadow-sm transition-colors"
           >
-            <i class="fa-solid fa-file-invoice text-[#a6d37e]" aria-hidden="true"></i>
-            <span>Solicitar Orçamento Online</span>
+            <i class="fa-regular fa-comment-dots text-[#a6d37e]" aria-hidden="true"></i>
+            <span>Fale Conosco</span>
           </a>
           <a
             href="tel:1935417975"
-            class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold text-base px-6 py-3.5 rounded-lg border border-white/30 backdrop-blur-xs transition-colors text-center"
+            class="inline-flex items-center gap-2 text-emerald-100 hover:text-white text-base font-semibold px-4 py-3"
           >
             <i class="fa-solid fa-phone text-[#a6d37e]" aria-hidden="true"></i>
-            <span>Ligue: (19) 3541 7975</span>
+            <span>(19) 3541 7975</span>
           </a>
         </div>
       </div>
