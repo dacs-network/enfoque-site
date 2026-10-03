@@ -68,8 +68,7 @@ const navItems = [
           aria-controls="mobile-menu"
           aria-label={t("nav.home")}
         >
-          <i id="menu-icon-bars" class="fa-solid fa-bars text-xl" aria-hidden="true"></i>
-          <i id="menu-icon-xmark" class="fa-solid fa-xmark text-xl hidden" aria-hidden="true"></i>
+          <i id="menu-icon" class="fa-solid fa-bars text-xl" aria-hidden="true"></i>
         </button>
       </div>
     </div>
@@ -111,23 +110,30 @@ const navItems = [
 <script>
   const button = document.getElementById("mobile-menu-button");
   const menu = document.getElementById("mobile-menu");
-  const barsIcon = document.getElementById("menu-icon-bars");
-  const xmarkIcon = document.getElementById("menu-icon-xmark");
+  const menuIcon = document.getElementById("menu-icon");
 
-  if (button && menu && barsIcon && xmarkIcon) {
-    const toggleMenu = () => {
+  if (button && menu && menuIcon) {
+    const toggleMenu = (forceClose?: boolean) => {
       const isExpanded = button.getAttribute("aria-expanded") === "true";
-      button.setAttribute("aria-expanded", String(!isExpanded));
-      menu.classList.toggle("hidden");
-      barsIcon.classList.toggle("hidden");
-      xmarkIcon.classList.toggle("hidden");
+      const shouldOpen = forceClose ? false : !isExpanded;
+      
+      button.setAttribute("aria-expanded", String(shouldOpen));
+      menu.classList.toggle("hidden", !shouldOpen);
+      
+      if (shouldOpen) {
+        menuIcon.classList.remove("fa-bars");
+        menuIcon.classList.add("fa-xmark");
+      } else {
+        menuIcon.classList.remove("fa-xmark");
+        menuIcon.classList.add("fa-bars");
+      }
     };
 
-    button.addEventListener("click", toggleMenu);
+    button.addEventListener("click", () => toggleMenu());
 
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && !menu.classList.contains("hidden")) {
-        toggleMenu();
+        toggleMenu(true);
         button.focus();
       }
     });

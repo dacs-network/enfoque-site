@@ -32,4 +32,12 @@
     background-color: #003300;
     color: #ffffff;
   }
+
+  [hidden] {
+    display: none !important;
+  }
+}
+
+@utility hidden {
+  display: none !important;
 }
