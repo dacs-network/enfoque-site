@@ -1,21 +1,25 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { certifications } from "../data/certifications";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <Layout
-  title="Certificados e Licenças | Enfoque Ambiental"
-  description="Consulte os certificados e licenças regulatórias da Enfoque Ambiental: CETESB, IBAMA, ANTT, AVCB e Alvará de Funcionamento."
+  title={t("certificados.meta.title")}
+  description={t("certificados.meta.description")}
   currentPath="/certificados"
 >
   <section class="bg-[#003300] text-white py-12 md:py-16 border-b border-emerald-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="max-w-3xl space-y-2">
         <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
-          Certificados e Licenças
+          {t("certificados.hero.title")}
         </h1>
         <p class="text-emerald-100/90 text-base sm:text-lg">
-          Painel de conformidade regulatória perante os órgãos fiscalizadores para auditorias e homologação de fornecedores.
+          {t("certificados.hero.subtitle")}
         </p>
       </div>
     </div>
@@ -74,17 +78,17 @@ import { certifications } from "../data/certifications";
       <div class="bg-[#003300] text-white p-8 sm:p-10 rounded-2xl shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
         <div class="space-y-1">
           <h2 class="text-xl font-bold text-white">
-            Necessita de certidões adicionais para homologação?
+            {t("certificados.cta.title")}
           </h2>
           <p class="text-sm text-emerald-100/80">
-            Fornecemos certidões negativas, comprovantes cadastrais e dados operacionais para o setor de compras da sua empresa.
+            {t("certificados.cta.desc")}
           </p>
         </div>
         <a
           href="/contato"
           class="inline-flex items-center justify-center bg-[#006400] hover:bg-[#004d00] text-white font-bold text-sm px-6 py-3 rounded-lg shadow-sm hover:shadow transition-all shrink-0"
         >
-          Fale Conosco
+          {t("cta.contact")}
         </a>
       </div>
     </div>

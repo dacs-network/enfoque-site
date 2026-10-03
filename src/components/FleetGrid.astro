@@ -1,11 +1,15 @@
 ---
 import { fleet } from "../data/fleet";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 interface Props {
   showTitle?: boolean;
 }
 
 const { showTitle = true } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="py-16 md:py-20 bg-white" aria-labelledby="equipment-heading">
@@ -13,10 +17,10 @@ const { showTitle = true } = Astro.props;
     {showTitle && (
       <div class="max-w-3xl space-y-2">
         <h2 id="equipment-heading" class="text-2xl sm:text-3xl font-extrabold text-[#003300] tracking-tight">
-          Nossos Equipamentos
+          {t("equipamentos.hero.title")}
         </h2>
         <p class="text-gray-600 text-base">
-          Especificações técnicas da frota própria homologada para operações industriais e rodoviárias:
+          {t("equipamentos.table.lead")}
         </p>
       </div>
     )}
@@ -27,10 +31,10 @@ const { showTitle = true } = Astro.props;
         <table class="w-full text-left text-sm text-gray-700">
           <thead class="bg-[#003300] text-xs uppercase tracking-wider text-white">
             <tr>
-              <th scope="col" class="py-4 px-6 font-bold">Veículo / Equipamento</th>
-              <th scope="col" class="py-4 px-6 font-bold">Aplicação Operacional</th>
-              <th scope="col" class="py-4 px-6 font-bold">Capacidade Homologada</th>
-              <th scope="col" class="py-4 px-6 font-bold">Resíduos e Materiais</th>
+              <th scope="col" class="py-4 px-6 font-bold">{t("equipamentos.table.colVehicle")}</th>
+              <th scope="col" class="py-4 px-6 font-bold">{t("equipamentos.table.colApp")}</th>
+              <th scope="col" class="py-4 px-6 font-bold">{t("equipamentos.table.colCapacity")}</th>
+              <th scope="col" class="py-4 px-6 font-bold">{t("equipamentos.table.colMaterials")}</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-gray-200">
@@ -77,7 +81,7 @@ const { showTitle = true } = Astro.props;
           </div>
           <p class="text-xs text-gray-600">{item.application}</p>
           <div class="pt-2 border-t border-gray-200 text-xs text-gray-700">
-            <strong class="font-semibold text-gray-900 block mb-0.5">Material Atendido:</strong>
+            <strong class="font-semibold text-gray-900 block mb-0.5">{t("equipamentos.mobile.materialLabel")}</strong>
             <span>{item.material}</span>
           </div>
         </div>

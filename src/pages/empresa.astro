@@ -1,20 +1,25 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { company } from "../data/company";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <Layout
-  title="A Empresa | Enfoque Ambiental"
-  description="Histórico, diretrizes técnicas e estrutura da Enfoque Ambiental em Araras e interior paulista."
+  title={t("empresa.meta.title")}
+  description={t("empresa.meta.description")}
   currentPath="/empresa"
 >
   <section class="bg-[#003300] text-white py-12 md:py-16 border-b border-emerald-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="max-w-3xl space-y-2">
         <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
-          A Empresa
+          {t("empresa.hero.title")}
         </h1>
         <p class="text-emerald-100/90 text-base sm:text-lg">
-          Histórico operacional, diretrizes técnicas e atuação em engenharia ambiental no interior de São Paulo.
+          {t("empresa.hero.subtitle")}
         </p>
       </div>
     </div>
@@ -25,16 +30,16 @@ import Layout from "../layouts/Layout.astro";
       <!-- Visão Geral -->
       <div class="space-y-4">
         <span class="text-xs font-bold uppercase tracking-wider text-[#006400]">
-          Perfil Institucional
+          {t("empresa.profile.badge")}
         </span>
         <h2 class="text-2xl sm:text-3xl font-extrabold text-[#003300] tracking-tight">
-          Mais de uma década de atuação em engenharia e gestão de resíduos
+          {t("empresa.profile.title")}
         </h2>
         <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
-          Fundada e sediada no município de Araras/SP, a Enfoque Ambiental desenvolve soluções aplicadas para atendimento a geradores industriais, comerciais e entidades públicas. A atuação combina consultoria em licenciamento ambiental à execução prática de coleta, transporte e destinação de resíduos.
+          {t("empresa.profile.p1")}
         </p>
         <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
-          O corpo técnico é estruturado para atender demandas complexas de controle de poluição, emissão de CADRI, outorgas de recursos hídricos e transporte de cargas perigosas (Classe I) e não perigosas (Classe II).
+          {t("empresa.profile.p2")}
         </p>
       </div>
 
@@ -44,9 +49,9 @@ import Layout from "../layouts/Layout.astro";
           <div class="w-10 h-10 rounded-lg bg-[#003300] text-[#a6d37e] flex items-center justify-center">
             <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
           </div>
-          <h3 class="text-base font-bold text-gray-900">Rigor Normativo</h3>
+          <h3 class="text-base font-bold text-gray-900">{t("empresa.pillars.normative.title")}</h3>
           <p class="text-sm text-gray-600 leading-relaxed">
-            Processos conduzidos sob as diretrizes técnicas da CETESB, IBAMA, DAEE e normas ABNT vigentes.
+            {t("empresa.pillars.normative.desc")}
           </p>
         </div>
 
@@ -54,9 +59,9 @@ import Layout from "../layouts/Layout.astro";
           <div class="w-10 h-10 rounded-lg bg-[#003300] text-[#a6d37e] flex items-center justify-center">
             <i class="fa-solid fa-route" aria-hidden="true"></i>
           </div>
-          <h3 class="text-base font-bold text-gray-900">Rastreabilidade</h3>
+          <h3 class="text-base font-bold text-gray-900">{t("empresa.pillars.traceability.title")}</h3>
           <p class="text-sm text-gray-600 leading-relaxed">
-            Controle documental rigoroso com emissão de MTR, manifestos e destinação em locais devidamente licenciados.
+            {t("empresa.pillars.traceability.desc")}
           </p>
         </div>
 
@@ -64,9 +69,9 @@ import Layout from "../layouts/Layout.astro";
           <div class="w-10 h-10 rounded-lg bg-[#003300] text-[#a6d37e] flex items-center justify-center">
             <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
           </div>
-          <h3 class="text-base font-bold text-gray-900">Segurança Operacional</h3>
+          <h3 class="text-base font-bold text-gray-900">{t("empresa.pillars.safety.title")}</h3>
           <p class="text-sm text-gray-600 leading-relaxed">
-            Equipamentos homologados pela ANTT e equipe capacitada para manuseio seguro de produtos e efluentes.
+            {t("empresa.pillars.safety.desc")}
           </p>
         </div>
       </div>
@@ -74,19 +79,19 @@ import Layout from "../layouts/Layout.astro";
       <!-- Estrutura Operacional -->
       <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200 space-y-4">
         <h3 class="text-xl font-bold text-[#003300]">
-          Estrutura Operacional
+          {t("empresa.structure.title")}
         </h3>
         <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
-          Localizada no Distrito Industrial de Araras/SP, a Enfoque Ambiental dispõe de infraestrutura completa para estacionamento e manobra de veículos pesados, equipamentos roll-on, unidades de sucção a vácuo e hidrojateamento, além de área dedicada à gestão de caçambas estacionárias e atendimento logístico regional.
+          {t("empresa.structure.desc")}
         </p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 text-sm text-gray-700">
           <div class="flex items-center gap-2">
             <i class="fa-solid fa-location-dot text-[#006400]" aria-hidden="true"></i>
-            <span>Rua Ruperto Malaman, 380 • Distrito Industrial • Araras/SP</span>
+            <span>{company.address.street} • {company.address.district} • {company.address.city}/{company.address.state}</span>
           </div>
           <div class="flex items-center gap-2">
             <i class="fa-solid fa-phone text-[#006400]" aria-hidden="true"></i>
-            <span>(19) 3541-7975 • (19) 3321-9111</span>
+            <span>{company.phones.map((p) => p.display).join(" • ")}</span>
           </div>
         </div>
       </div>
@@ -94,14 +99,14 @@ import Layout from "../layouts/Layout.astro";
       <!-- Fechamento -->
       <div class="pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h4 class="text-lg font-bold text-gray-900">Precisa de assessoria técnica para a sua empresa?</h4>
-          <p class="text-sm text-gray-600">Consulte nossa equipe técnica para projetos ambientais e transporte de resíduos.</p>
+          <h4 class="text-lg font-bold text-gray-900">{t("empresa.cta.title")}</h4>
+          <p class="text-sm text-gray-600">{t("empresa.cta.desc")}</p>
         </div>
         <a
           href="/contato"
-          class="inline-flex items-center justify-center bg-[#006400] hover:bg-[#004d00] text-white font-bold text-sm px-6 py-3 rounded-lg shadow-sm hover:shadow transition-all shrink-0"
+          class="inline-flex items-center justify-center bg-[#006400] hover:bg-[#004d00] text-white font-bold text-sm px-6 py-3 rounded-lg shadow-sm hover:shadow transition-all shrink-0 focus-visible:ring-2 focus-visible:ring-[#006400]"
         >
-          Fale Conosco
+          {t("cta.contact")}
         </a>
       </div>
     </div>

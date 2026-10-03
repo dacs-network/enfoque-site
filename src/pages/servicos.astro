@@ -1,20 +1,24 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <Layout
-  title="Serviços | Enfoque Ambiental"
-  description="Serviços especializados em coleta, transporte de resíduos perigosos e não perigosos, licenciamento CETESB e consultoria técnica."
+  title={t("servicos.meta.title")}
+  description={t("servicos.meta.description")}
   currentPath="/servicos"
 >
   <section class="bg-[#003300] text-white py-12 md:py-16 border-b border-emerald-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="max-w-3xl space-y-2">
         <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
-          Nossos Serviços
+          {t("servicos.hero.title")}
         </h1>
         <p class="text-emerald-100/90 text-base sm:text-lg">
-          Operação logística de resíduos industriais e assessoria técnica em conformidade ambiental.
+          {t("servicos.hero.subtitle")}
         </p>
       </div>
     </div>
@@ -27,13 +31,13 @@ import Layout from "../layouts/Layout.astro";
       <div class="space-y-8">
         <div class="border-b border-gray-200 pb-4 max-w-3xl">
           <span class="text-xs font-bold uppercase tracking-wider text-[#006400]">
-            Logística e Campo
+            {t("servicos.ops.badge")}
           </span>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-[#003300] tracking-tight">
-            Coleta, Transporte e Gerenciamento de Resíduos
+            {t("servicos.ops.title")}
           </h2>
           <p class="text-sm text-gray-600 mt-1">
-            Movimentação rodoviária e controle operacional em total conformidade com normas técnicas e ambientais.
+            {t("servicos.ops.desc")}
           </p>
         </div>
 
@@ -43,39 +47,39 @@ import Layout from "../layouts/Layout.astro";
             <div class="h-64 sm:h-72 overflow-hidden bg-gray-100 relative">
               <img
                 src="/img/servico-transporte-residuo.webp"
-                alt="Coleta e Transporte de Resíduos Industriais"
+                alt={t("servicos.ops.transport.title")}
                 class="w-full h-full object-cover"
                 loading="lazy"
               />
               <div class="absolute bottom-4 left-4 bg-[#003300]/90 backdrop-blur-xs text-white text-xs font-semibold px-3 py-1.5 rounded-lg border border-emerald-700/40">
-                Frota Homologada ANTT
+                {t("servicos.ops.highlightBadge")}
               </div>
             </div>
             <div class="p-6 sm:p-8 space-y-4">
               <h3 class="text-xl font-bold text-[#003300]">
-                Coleta e Transporte Especializado
+                {t("servicos.ops.transport.title")}
               </h3>
               <p class="text-gray-700 text-sm leading-relaxed">
-                Transporte de resíduos com frota própria rastreada e encaminhamento para destinação final em aterros e plantas homologadas pela CETESB.
+                {t("servicos.ops.transport.desc")}
               </p>
               <div class="space-y-2 pt-2 border-t border-gray-100">
-                <span class="text-xs font-bold text-gray-700 uppercase tracking-wider block">Escopo Operacional:</span>
+                <span class="text-xs font-bold text-gray-700 uppercase tracking-wider block">{t("servicos.ops.transport.scopeTitle")}</span>
                 <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-gray-700">
                   <li class="flex items-start gap-2">
                     <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
-                    <span>Resíduos Classe I (Perigosos) e Classe II (Não perigosos)</span>
+                    <span>{t("servicos.ops.transport.item1")}</span>
                   </li>
                   <li class="flex items-start gap-2">
                     <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
-                    <span>Efluentes líquidos industriais e chorume</span>
+                    <span>{t("servicos.ops.transport.item2")}</span>
                   </li>
                   <li class="flex items-start gap-2">
                     <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
-                    <span>Atendimento a contingências com produtos químicos</span>
+                    <span>{t("servicos.ops.transport.item3")}</span>
                   </li>
                   <li class="flex items-start gap-2">
                     <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
-                    <span>Caçambas de 15m³ para descarte industrial e construção civil</span>
+                    <span>{t("servicos.ops.transport.item4")}</span>
                   </li>
                 </ul>
               </div>
@@ -89,33 +93,33 @@ import Layout from "../layouts/Layout.astro";
                 <i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i>
               </div>
               <div>
-                <h3 class="text-lg font-bold text-gray-900">Gerenciamento no Gerador</h3>
-                <p class="text-xs text-gray-500">Fluxos internos e segregação de resíduos</p>
+                <h3 class="text-lg font-bold text-gray-900">{t("servicos.ops.managing.title")}</h3>
+                <p class="text-xs text-gray-500">{t("servicos.ops.managing.subtitle")}</p>
               </div>
             </div>
 
             <p class="text-gray-700 text-sm leading-relaxed">
-              Estruturação dos processos internos do cliente para classificação, acondicionamento e controle documental exigido pelos órgãos fiscalizadores.
+              {t("servicos.ops.managing.desc")}
             </p>
 
             <ul class="space-y-3 text-xs sm:text-sm text-gray-700">
               <li class="flex items-start gap-2">
                 <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
-                <span>Diagnóstico e classificação conforme normas ABNT NBR 10.004</span>
+                <span>{t("servicos.ops.managing.item1")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
-                <span>Implantação de procedimentos de coleta e segregação na fonte</span>
+                <span>{t("servicos.ops.managing.item2")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
-                <span>Rastreabilidade com emissão de MTR e manifestos para auditorias</span>
+                <span>{t("servicos.ops.managing.item3")}</span>
               </li>
             </ul>
 
             <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 text-xs text-gray-600 leading-relaxed">
-              <strong class="font-semibold text-gray-900 block mb-1">Destinação Segura:</strong>
-              Todo transporte é acompanhado de documentação de controle de resíduos, garantindo comprovação de descarte legal para a indústria geradora.
+              <strong class="font-semibold text-gray-900 block mb-1">{t("servicos.ops.managing.noteTitle")}</strong>
+              {t("servicos.ops.managing.noteDesc")}
             </div>
           </div>
         </div>
@@ -125,13 +129,13 @@ import Layout from "../layouts/Layout.astro";
       <div class="space-y-8">
         <div class="border-b border-gray-200 pb-4 max-w-3xl">
           <span class="text-xs font-bold uppercase tracking-wider text-[#006400]">
-            Consultoria e Regularização
+            {t("servicos.consulting.badge")}
           </span>
           <h2 class="text-2xl sm:text-3xl font-extrabold text-[#003300] tracking-tight">
-            Licenciamentos, Normas e Estudos Ambientais
+            {t("servicos.consulting.title")}
           </h2>
           <p class="text-sm text-gray-600 mt-1">
-            Assessoria técnica contínua perante órgãos ambientais estaduais e federais.
+            {t("servicos.consulting.desc")}
           </p>
         </div>
 
@@ -143,31 +147,31 @@ import Layout from "../layouts/Layout.astro";
                 <i class="fa-solid fa-file-contract" aria-hidden="true"></i>
               </div>
               <div>
-                <h3 class="text-lg font-bold text-gray-900">Licenciamento e Autorizações</h3>
-                <p class="text-xs text-gray-500">CETESB, IBAMA e DAEE</p>
+                <h3 class="text-lg font-bold text-gray-900">{t("servicos.consulting.licensing.title")}</h3>
+                <p class="text-xs text-gray-500">{t("servicos.consulting.licensing.subtitle")}</p>
               </div>
             </div>
 
             <p class="text-gray-700 text-sm leading-relaxed">
-              Elaboração e acompanhamento de processos administrativos e técnicos para obtenção e renovação de licenças de operação e autorizações especiais.
+              {t("servicos.consulting.licensing.desc")}
             </p>
 
             <ul class="space-y-2.5 text-xs sm:text-sm text-gray-700">
               <li class="flex items-start gap-2">
                 <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
-                <span>Licenças Prévia (LP), Instalação (LI), Operação (LO) e CDL na CETESB</span>
+                <span>{t("servicos.consulting.licensing.item1")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
-                <span>Solicitação e renovação de CADRI junto à CETESB</span>
+                <span>{t("servicos.consulting.licensing.item2")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
-                <span>Cadastro Técnico Federal (CTF) e autorizações ambientais no IBAMA</span>
+                <span>{t("servicos.consulting.licensing.item3")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
-                <span>Outorgas de direito de uso e interferência de recursos hídricos no DAEE</span>
+                <span>{t("servicos.consulting.licensing.item4")}</span>
               </li>
             </ul>
           </div>
@@ -179,31 +183,31 @@ import Layout from "../layouts/Layout.astro";
                 <i class="fa-solid fa-book-bookmark" aria-hidden="true"></i>
               </div>
               <div>
-                <h3 class="text-lg font-bold text-gray-900">Planos, Normas e Manuais</h3>
-                <p class="text-xs text-gray-500">Documentação e pareceres de engenharia</p>
+                <h3 class="text-lg font-bold text-gray-900">{t("servicos.consulting.norms.title")}</h3>
+                <p class="text-xs text-gray-500">{t("servicos.consulting.norms.subtitle")}</p>
               </div>
             </div>
 
             <p class="text-gray-700 text-sm leading-relaxed">
-              Elaboração de estudos técnicos e manuais de procedimentos para atendimento a auditorias e exigências legais do setor produtivo.
+              {t("servicos.consulting.norms.desc")}
             </p>
 
             <ul class="space-y-2.5 text-xs sm:text-sm text-gray-700">
               <li class="flex items-start gap-2">
                 <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
-                <span>Plano de Gerenciamento de Resíduos Sólidos (PGRS)</span>
+                <span>{t("servicos.consulting.norms.item1")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
-                <span>Documentação para transporte rodoviário de produtos perigosos</span>
+                <span>{t("servicos.consulting.norms.item2")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
-                <span>Estudos de Viabilidade de Implantação (EVI)</span>
+                <span>{t("servicos.consulting.norms.item3")}</span>
               </li>
               <li class="flex items-start gap-2">
                 <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
-                <span>Pareceres técnicos ambientais e planos de monitoramento</span>
+                <span>{t("servicos.consulting.norms.item4")}</span>
               </li>
             </ul>
           </div>
@@ -214,17 +218,17 @@ import Layout from "../layouts/Layout.astro";
       <div class="bg-[#003300] text-white p-8 sm:p-10 rounded-2xl shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
         <div class="space-y-1">
           <h3 class="text-xl font-bold text-white">
-            Necessita de suporte para licenciamento ou destinação de resíduos?
+            {t("servicos.cta.title")}
           </h3>
           <p class="text-sm text-emerald-100/80">
-            Entre em contato para avaliar o escopo e as exigências técnicas da sua operação.
+            {t("servicos.cta.desc")}
           </p>
         </div>
         <a
           href="/contato"
           class="inline-flex items-center justify-center bg-[#006400] hover:bg-[#004d00] text-white font-bold text-sm px-6 py-3 rounded-lg shadow-sm hover:shadow transition-all shrink-0 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#a6d37e]"
         >
-          Fale Conosco
+          {t("cta.contact")}
         </a>
       </div>
     </div>

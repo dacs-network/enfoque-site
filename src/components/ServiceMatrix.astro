@@ -1,4 +1,8 @@
 ---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="py-16 md:py-20 bg-gray-50 border-t border-gray-200">
@@ -11,29 +15,29 @@
             <div class="w-10 h-10 rounded-lg bg-[#003300] text-[#a6d37e] flex items-center justify-center shrink-0">
               <i class="fa-solid fa-recycle" aria-hidden="true"></i>
             </div>
-            <h3 class="text-xl font-bold text-[#003300]">Serviços</h3>
+            <h3 class="text-xl font-bold text-[#003300]">{t("home.cards.services.title")}</h3>
           </div>
 
           <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
-            Entre os principais serviços oferecidos pela Enfoque Ambiental estão:
+            {t("home.cards.services.lead")}
           </p>
 
           <ul class="space-y-2.5 text-sm sm:text-base text-gray-800">
             <li class="flex items-center gap-2.5">
               <i class="fa-solid fa-check text-[#006400] text-sm shrink-0" aria-hidden="true"></i>
-              <span>Gerenciamento de Resíduos</span>
+              <span>{t("home.cards.services.item1")}</span>
             </li>
             <li class="flex items-center gap-2.5">
               <i class="fa-solid fa-check text-[#006400] text-sm shrink-0" aria-hidden="true"></i>
-              <span>Coleta e Transporte de Resíduos</span>
+              <span>{t("home.cards.services.item2")}</span>
             </li>
             <li class="flex items-center gap-2.5">
               <i class="fa-solid fa-check text-[#006400] text-sm shrink-0" aria-hidden="true"></i>
-              <span>Consultoria e Assessoria Ambiental</span>
+              <span>{t("home.cards.services.item3")}</span>
             </li>
             <li class="flex items-center gap-2.5">
               <i class="fa-solid fa-check text-[#006400] text-sm shrink-0" aria-hidden="true"></i>
-              <span>Elaboração de Normas e Manuais</span>
+              <span>{t("home.cards.services.item4")}</span>
             </li>
           </ul>
         </div>
@@ -41,9 +45,9 @@
         <div class="pt-4 border-t border-gray-100">
           <a
             href="/servicos"
-            class="inline-flex items-center gap-2 text-sm font-semibold text-[#003300] hover:text-[#006400] transition-colors group"
+            class="inline-flex items-center gap-2 text-sm font-semibold text-[#003300] hover:text-[#006400] transition-colors group focus-visible:ring-2 focus-visible:ring-[#006400] rounded"
           >
-            <span>Clique aqui para conhecer todos os serviços oferecidos pela Enfoque Ambiental.</span>
+            <span>{t("home.cards.services.link")}</span>
             <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1 shrink-0" aria-hidden="true"></i>
           </a>
         </div>
@@ -56,29 +60,29 @@
             <div class="w-10 h-10 rounded-lg bg-[#003300] text-[#a6d37e] flex items-center justify-center shrink-0">
               <i class="fa-solid fa-truck-moving" aria-hidden="true"></i>
             </div>
-            <h3 class="text-xl font-bold text-[#003300]">Equipamentos</h3>
+            <h3 class="text-xl font-bold text-[#003300]">{t("home.cards.fleet.title")}</h3>
           </div>
 
           <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
-            A Enfoque Ambiental conta com equipamentos de última geração:
+            {t("home.cards.fleet.lead")}
           </p>
 
           <ul class="space-y-2.5 text-sm sm:text-base text-gray-800">
             <li class="flex items-center gap-2.5">
               <i class="fa-solid fa-check text-[#006400] text-sm shrink-0" aria-hidden="true"></i>
-              <span>Veículos Coletores</span>
+              <span>{t("home.cards.fleet.item1")}</span>
             </li>
             <li class="flex items-center gap-2.5">
               <i class="fa-solid fa-check text-[#006400] text-sm shrink-0" aria-hidden="true"></i>
-              <span>Transportadores de Resíduos</span>
+              <span>{t("home.cards.fleet.item2")}</span>
             </li>
             <li class="flex items-center gap-2.5">
               <i class="fa-solid fa-check text-[#006400] text-sm shrink-0" aria-hidden="true"></i>
-              <span>Compactadores</span>
+              <span>{t("home.cards.fleet.item3")}</span>
             </li>
             <li class="flex items-center gap-2.5">
               <i class="fa-solid fa-check text-[#006400] text-sm shrink-0" aria-hidden="true"></i>
-              <span>Multicargas</span>
+              <span>{t("home.cards.fleet.item4")}</span>
             </li>
           </ul>
         </div>
@@ -86,9 +90,9 @@
         <div class="pt-4 border-t border-gray-100">
           <a
             href="/equipamentos"
-            class="inline-flex items-center gap-2 text-sm font-semibold text-[#003300] hover:text-[#006400] transition-colors group"
+            class="inline-flex items-center gap-2 text-sm font-semibold text-[#003300] hover:text-[#006400] transition-colors group focus-visible:ring-2 focus-visible:ring-[#006400] rounded"
           >
-            <span>Clique aqui para conhecer todos os equipamentos utilizados pela Enfoque Ambiental.</span>
+            <span>{t("home.cards.fleet.link")}</span>
             <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1 shrink-0" aria-hidden="true"></i>
           </a>
         </div>

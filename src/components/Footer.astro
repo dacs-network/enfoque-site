@@ -1,5 +1,9 @@
 ---
 import { company } from "../data/company";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <footer class="bg-[#003300] text-white border-t-4 border-[#006400]">
@@ -7,7 +11,7 @@ import { company } from "../data/company";
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
       <!-- Col 1: Institucional -->
       <div class="space-y-4">
-        <a href="/" class="inline-block" aria-label="Enfoque Ambiental - Página Inicial">
+        <a href="/" class="inline-block" aria-label={t("site.name")}>
           <img
             src="/img/logo-white.png"
             alt={company.name}
@@ -25,15 +29,15 @@ import { company } from "../data/company";
             href="https://facebook.com"
             target="_blank"
             rel="noopener noreferrer"
-            class="w-9 h-9 rounded-full bg-emerald-950 flex items-center justify-center text-emerald-200 hover:text-white hover:bg-[#006400] transition-colors"
-            aria-label="Facebook da Enfoque Ambiental"
+            class="w-9 h-9 rounded-full bg-emerald-950 flex items-center justify-center text-emerald-200 hover:text-white hover:bg-[#006400] transition-colors focus-visible:ring-2 focus-visible:ring-[#a6d37e]"
+            aria-label="Facebook"
           >
             <i class="fa-brands fa-facebook-f text-base" aria-hidden="true"></i>
           </a>
           <a
             href={`mailto:${company.email}`}
-            class="w-9 h-9 rounded-full bg-emerald-950 flex items-center justify-center text-emerald-200 hover:text-white hover:bg-[#006400] transition-colors"
-            aria-label="E-mail de contato"
+            class="w-9 h-9 rounded-full bg-emerald-950 flex items-center justify-center text-emerald-200 hover:text-white hover:bg-[#006400] transition-colors focus-visible:ring-2 focus-visible:ring-[#a6d37e]"
+            aria-label={t("footer.emailLabel")}
           >
             <i class="fa-solid fa-envelope text-base" aria-hidden="true"></i>
           </a>
@@ -41,8 +45,8 @@ import { company } from "../data/company";
             href="https://wa.me/551935417975"
             target="_blank"
             rel="noopener noreferrer"
-            class="w-9 h-9 rounded-full bg-emerald-950 flex items-center justify-center text-emerald-200 hover:text-white hover:bg-[#006400] transition-colors"
-            aria-label="WhatsApp da Enfoque Ambiental"
+            class="w-9 h-9 rounded-full bg-emerald-950 flex items-center justify-center text-emerald-200 hover:text-white hover:bg-[#006400] transition-colors focus-visible:ring-2 focus-visible:ring-[#a6d37e]"
+            aria-label="WhatsApp"
           >
             <i class="fa-brands fa-whatsapp text-base" aria-hidden="true"></i>
           </a>
@@ -53,37 +57,37 @@ import { company } from "../data/company";
       <div>
         <h4 class="text-base font-bold text-white uppercase tracking-wider mb-4 pb-2 border-b border-emerald-900 flex items-center gap-2">
           <i class="fa-solid fa-bars text-[#a6d37e]" aria-hidden="true"></i>
-          <span>Navegação</span>
+          <span>{t("footer.navTitle")}</span>
         </h4>
         <ul class="space-y-2.5 text-sm text-emerald-100/80">
           <li>
-            <a href="/" class="hover:text-white hover:translate-x-1 inline-flex items-center transition-all">
-              <i class="fa-solid fa-chevron-right text-xs text-[#a6d37e] mr-1.5" aria-hidden="true"></i> Home
+            <a href="/" class="hover:text-white hover:translate-x-1 inline-flex items-center transition-all focus-visible:ring-2 focus-visible:ring-[#a6d37e] rounded">
+              <i class="fa-solid fa-chevron-right text-xs text-[#a6d37e] mr-1.5" aria-hidden="true"></i> {t("nav.home")}
             </a>
           </li>
           <li>
-            <a href="/empresa" class="hover:text-white hover:translate-x-1 inline-flex items-center transition-all">
-              <i class="fa-solid fa-chevron-right text-xs text-[#a6d37e] mr-1.5" aria-hidden="true"></i> Empresa
+            <a href="/empresa" class="hover:text-white hover:translate-x-1 inline-flex items-center transition-all focus-visible:ring-2 focus-visible:ring-[#a6d37e] rounded">
+              <i class="fa-solid fa-chevron-right text-xs text-[#a6d37e] mr-1.5" aria-hidden="true"></i> {t("nav.empresa")}
             </a>
           </li>
           <li>
-            <a href="/servicos" class="hover:text-white hover:translate-x-1 inline-flex items-center transition-all">
-              <i class="fa-solid fa-chevron-right text-xs text-[#a6d37e] mr-1.5" aria-hidden="true"></i> Serviços
+            <a href="/servicos" class="hover:text-white hover:translate-x-1 inline-flex items-center transition-all focus-visible:ring-2 focus-visible:ring-[#a6d37e] rounded">
+              <i class="fa-solid fa-chevron-right text-xs text-[#a6d37e] mr-1.5" aria-hidden="true"></i> {t("nav.servicos")}
             </a>
           </li>
           <li>
-            <a href="/equipamentos" class="hover:text-white hover:translate-x-1 inline-flex items-center transition-all">
-              <i class="fa-solid fa-chevron-right text-xs text-[#a6d37e] mr-1.5" aria-hidden="true"></i> Equipamentos
+            <a href="/equipamentos" class="hover:text-white hover:translate-x-1 inline-flex items-center transition-all focus-visible:ring-2 focus-visible:ring-[#a6d37e] rounded">
+              <i class="fa-solid fa-chevron-right text-xs text-[#a6d37e] mr-1.5" aria-hidden="true"></i> {t("nav.equipamentos")}
             </a>
           </li>
           <li>
-            <a href="/certificados" class="hover:text-white hover:translate-x-1 inline-flex items-center transition-all">
-              <i class="fa-solid fa-chevron-right text-xs text-[#a6d37e] mr-1.5" aria-hidden="true"></i> Certificados
+            <a href="/certificados" class="hover:text-white hover:translate-x-1 inline-flex items-center transition-all focus-visible:ring-2 focus-visible:ring-[#a6d37e] rounded">
+              <i class="fa-solid fa-chevron-right text-xs text-[#a6d37e] mr-1.5" aria-hidden="true"></i> {t("nav.certificados")}
             </a>
           </li>
           <li>
-            <a href="/contato" class="hover:text-white hover:translate-x-1 inline-flex items-center transition-all">
-              <i class="fa-solid fa-chevron-right text-xs text-[#a6d37e] mr-1.5" aria-hidden="true"></i> Fale Conosco
+            <a href="/contato" class="hover:text-white hover:translate-x-1 inline-flex items-center transition-all focus-visible:ring-2 focus-visible:ring-[#a6d37e] rounded">
+              <i class="fa-solid fa-chevron-right text-xs text-[#a6d37e] mr-1.5" aria-hidden="true"></i> {t("nav.contato")}
             </a>
           </li>
         </ul>
@@ -93,32 +97,27 @@ import { company } from "../data/company";
       <div>
         <h4 class="text-base font-bold text-white uppercase tracking-wider mb-4 pb-2 border-b border-emerald-900 flex items-center gap-2">
           <i class="fa-solid fa-truck-droplet text-[#a6d37e]" aria-hidden="true"></i>
-          <span>Serviços</span>
+          <span>{t("footer.servicesTitle")}</span>
         </h4>
         <ul class="space-y-2.5 text-sm text-emerald-100/80">
           <li>
-            <a href="/servicos" class="hover:text-white transition-colors">
-              • Coleta e Transporte de Resíduos
+            <a href="/servicos" class="hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#a6d37e] rounded">
+              • {t("servicos.ops.transport.title")}
             </a>
           </li>
           <li>
-            <a href="/servicos" class="hover:text-white transition-colors">
-              • Gerenciamento de Resíduos
+            <a href="/servicos" class="hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#a6d37e] rounded">
+              • {t("servicos.ops.managing.title")}
             </a>
           </li>
           <li>
-            <a href="/servicos" class="hover:text-white transition-colors">
-              • Consultoria e Assessoria Ambiental
+            <a href="/servicos" class="hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#a6d37e] rounded">
+              • {t("servicos.consulting.licensing.title")}
             </a>
           </li>
           <li>
-            <a href="/servicos" class="hover:text-white transition-colors">
-              • Licenciamento CETESB e CADRI
-            </a>
-          </li>
-          <li>
-            <a href="/servicos" class="hover:text-white transition-colors">
-              • Hidrojateamento e Limpeza a Vácuo
+            <a href="/servicos" class="hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-[#a6d37e] rounded">
+              • {t("servicos.consulting.norms.title")}
             </a>
           </li>
         </ul>
@@ -128,13 +127,13 @@ import { company } from "../data/company";
       <div>
         <h4 class="text-base font-bold text-white uppercase tracking-wider mb-4 pb-2 border-b border-emerald-900 flex items-center gap-2">
           <i class="fa-solid fa-location-dot text-[#a6d37e]" aria-hidden="true"></i>
-          <span>Atendimento</span>
+          <span>{t("footer.contactTitle")}</span>
         </h4>
         <div class="space-y-3 text-sm text-emerald-100/90">
           <div class="flex items-start gap-2.5">
             <i class="fa-solid fa-map-pin text-[#a6d37e] mt-1 shrink-0" aria-hidden="true"></i>
             <div>
-              <p class="font-semibold text-white">Endereço:</p>
+              <p class="font-semibold text-white">{t("footer.addressLabel")}</p>
               <p>{company.address.street}</p>
               <p>{company.address.district} • {company.address.city} - {company.address.state}</p>
               <p class="text-xs text-emerald-300/80">CEP {company.address.zip}</p>
@@ -144,9 +143,9 @@ import { company } from "../data/company";
           <div class="flex items-start gap-2.5 pt-1">
             <i class="fa-solid fa-phone text-[#a6d37e] mt-1 shrink-0" aria-hidden="true"></i>
             <div>
-              <p class="font-semibold text-white">Telefones:</p>
+              <p class="font-semibold text-white">{t("footer.phonesLabel")}</p>
               {company.phones.map((phone) => (
-                <p><a href={`tel:${phone.raw}`} class="hover:text-white">{phone.display}</a></p>
+                <p><a href={`tel:${phone.raw}`} class="hover:text-white focus-visible:ring-2 focus-visible:ring-[#a6d37e] rounded">{phone.display}</a></p>
               ))}
             </div>
           </div>
@@ -154,8 +153,8 @@ import { company } from "../data/company";
           <div class="flex items-start gap-2.5 pt-1">
             <i class="fa-solid fa-envelope text-[#a6d37e] mt-1 shrink-0" aria-hidden="true"></i>
             <div>
-              <p class="font-semibold text-white">E-mail:</p>
-              <p><a href={`mailto:${company.email}`} class="hover:text-white break-all">{company.email}</a></p>
+              <p class="font-semibold text-white">{t("footer.emailLabel")}</p>
+              <p><a href={`mailto:${company.email}`} class="hover:text-white break-all focus-visible:ring-2 focus-visible:ring-[#a6d37e] rounded">{company.email}</a></p>
             </div>
           </div>
         </div>
@@ -163,14 +162,14 @@ import { company } from "../data/company";
     </div>
   </div>
 
-  <!-- Bottom Legal Bar -->
+  <!-- Barra de Copyright -->
   <div class="border-t border-emerald-950/80 bg-black/30 py-4 px-4 sm:px-6 text-xs text-emerald-200/70">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
       <p>
-        © {new Date().getFullYear()} {company.name} - Todos os direitos reservados.
+        © {new Date().getFullYear()} {company.name} - {t("footer.rights")}
       </p>
       <p class="text-emerald-300/60">
-        {company.tagline}
+        {t("site.tagline")}
       </p>
     </div>
   </div>

@@ -1,34 +1,32 @@
 ---
-interface Slide {
-  image: string;
-  alt: string;
-  title: string;
-  subtitle: string;
-}
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
-const slides: Slide[] = [
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const slides = [
   {
     image: "/img/slides/slide1.webp",
-    alt: "Serviços de Consultoria e Assessoria Ambiental",
-    title: "Consultoria e Assessoria Ambiental",
-    subtitle: "Licenciamento junto à CETESB, CADRI, IBAMA, DAEE e elaboração de normas e projetos técnicos.",
+    alt: t("home.hero.slide1.title"),
+    title: t("home.hero.slide1.title"),
+    subtitle: t("home.hero.slide1.subtitle"),
   },
   {
     image: "/img/slides/slide2.webp",
-    alt: "Coleta e Transporte de Resíduos",
-    title: "Coleta e Transporte de Resíduos",
-    subtitle: "Atendimento a resíduos Classe I e Classe II, efluentes industriais e acidentes com produtos químicos.",
+    alt: t("home.hero.slide2.title"),
+    title: t("home.hero.slide2.title"),
+    subtitle: t("home.hero.slide2.subtitle"),
   },
   {
     image: "/img/slides/slide3.webp",
-    alt: "Gerenciamento de Resíduos",
-    title: "Gerenciamento de Resíduos",
-    subtitle: "Conformidade com regulamentos e normas técnicas aplicáveis em vigor.",
+    alt: t("home.hero.slide3.title"),
+    title: t("home.hero.slide3.title"),
+    subtitle: t("home.hero.slide3.subtitle"),
   },
 ];
 ---
 
-<section class="relative bg-emerald-950 overflow-hidden" aria-label="Slideshow institucional">
+<section class="relative bg-emerald-950 overflow-hidden" aria-label={t("site.name")}>
   <div id="hero-carousel" class="relative w-full overflow-hidden min-h-[380px] sm:min-h-[440px] md:min-h-[500px]">
     {slides.map((slide, index) => (
       <div
@@ -60,9 +58,9 @@ const slides: Slide[] = [
             <div class="pt-2">
               <a
                 href="/servicos"
-                class="inline-flex items-center gap-2 text-white font-semibold text-sm sm:text-base hover:text-[#a6d37e] transition-colors group"
+                class="inline-flex items-center gap-2 text-white font-semibold text-sm sm:text-base hover:text-[#a6d37e] transition-colors group focus-visible:ring-2 focus-visible:ring-[#a6d37e] rounded"
               >
-                <span>Saiba mais</span>
+                <span>{t("cta.learnMore")}</span>
                 <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1" aria-hidden="true"></i>
               </a>
             </div>
@@ -74,7 +72,7 @@ const slides: Slide[] = [
     <button
       id="carousel-prev"
       type="button"
-      class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center transition-colors backdrop-blur-xs"
+      class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center transition-colors backdrop-blur-xs focus-visible:ring-2 focus-visible:ring-[#a6d37e]"
       aria-label="Slide anterior"
     >
       <i class="fa-solid fa-chevron-left text-base sm:text-lg" aria-hidden="true"></i>
@@ -83,7 +81,7 @@ const slides: Slide[] = [
     <button
       id="carousel-next"
       type="button"
-      class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center transition-colors backdrop-blur-xs"
+      class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center transition-colors backdrop-blur-xs focus-visible:ring-2 focus-visible:ring-[#a6d37e]"
       aria-label="Próximo slide"
     >
       <i class="fa-solid fa-chevron-right text-base sm:text-lg" aria-hidden="true"></i>
@@ -97,7 +95,7 @@ const slides: Slide[] = [
             index === 0 ? "bg-[#a6d37e] scale-125" : "bg-white/50 hover:bg-white"
           }`}
           data-indicator-index={index}
-          aria-label={`Ir para slide ${index + 1}`}
+          aria-label={`Slide ${index + 1}`}
         ></button>
       ))}
     </div>

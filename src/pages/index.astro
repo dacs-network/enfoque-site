@@ -2,11 +2,15 @@
 import Layout from "../layouts/Layout.astro";
 import HeroSlider from "../components/HeroSlider.astro";
 import ServiceMatrix from "../components/ServiceMatrix.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <Layout
-  title="Enfoque Ambiental | Consultoria, Coleta e Transporte de Resíduos"
-  description="A Enfoque Ambiental trabalha há mais de 10 anos ajudando empresas a solucionar problemas ambientais através de projetos técnicos, licenciamento e transporte de resíduos em Araras e região."
+  title={t("home.meta.title")}
+  description={t("home.meta.description")}
   currentPath="/"
 >
   <HeroSlider />
@@ -20,8 +24,8 @@ import ServiceMatrix from "../components/ServiceMatrix.astro";
             <i class="fa-solid fa-calendar-check text-[#a6d37e] text-2xl" aria-hidden="true"></i>
           </div>
           <div>
-            <div class="font-bold text-lg text-white">+10 Anos de Atuação</div>
-            <div class="text-xs text-emerald-200/80">Empresa consolidada no setor ambiental</div>
+            <div class="font-bold text-lg text-white tabular-nums">{t("home.stats.experience.title")}</div>
+            <div class="text-xs text-emerald-200/80">{t("home.stats.experience.subtitle")}</div>
           </div>
         </div>
 
@@ -30,8 +34,8 @@ import ServiceMatrix from "../components/ServiceMatrix.astro";
             <i class="fa-solid fa-user-shield text-[#a6d37e] text-2xl" aria-hidden="true"></i>
           </div>
           <div>
-            <div class="font-bold text-lg text-white">Corpo Técnico</div>
-            <div class="text-xs text-emerald-200/80">Engenharia e consultoria ambiental</div>
+            <div class="font-bold text-lg text-white">{t("home.stats.technical.title")}</div>
+            <div class="text-xs text-emerald-200/80">{t("home.stats.technical.subtitle")}</div>
           </div>
         </div>
 
@@ -40,8 +44,8 @@ import ServiceMatrix from "../components/ServiceMatrix.astro";
             <i class="fa-solid fa-truck-fast text-[#a6d37e] text-2xl" aria-hidden="true"></i>
           </div>
           <div>
-            <div class="font-bold text-lg text-white">Frota Própria</div>
-            <div class="text-xs text-emerald-200/80">Veículos coletores e transportadores</div>
+            <div class="font-bold text-lg text-white">{t("home.stats.fleet.title")}</div>
+            <div class="text-xs text-emerald-200/80">{t("home.stats.fleet.subtitle")}</div>
           </div>
         </div>
 
@@ -50,8 +54,8 @@ import ServiceMatrix from "../components/ServiceMatrix.astro";
             <i class="fa-solid fa-shield-halved text-[#a6d37e] text-2xl" aria-hidden="true"></i>
           </div>
           <div>
-            <div class="font-bold text-lg text-white">Conformidade Legal</div>
-            <div class="text-xs text-emerald-200/80">Normas técnicas e órgãos vigentes</div>
+            <div class="font-bold text-lg text-white">{t("home.stats.compliance.title")}</div>
+            <div class="text-xs text-emerald-200/80">{t("home.stats.compliance.subtitle")}</div>
           </div>
         </div>
       </div>
@@ -65,27 +69,27 @@ import ServiceMatrix from "../components/ServiceMatrix.astro";
         <div class="lg:col-span-7 space-y-6">
           <div class="space-y-3">
             <span class="text-xs font-bold uppercase tracking-wider text-[#006400]">
-              Institucional
+              {t("home.institutional.badge")}
             </span>
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#003300] tracking-tight leading-snug">
-              A Enfoque Ambiental trabalha há mais de 10 anos ajudando empresas a solucionar seus problemas ambientais.
+              {t("home.institutional.title")}
             </h2>
           </div>
 
           <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
-            A Enfoque Ambiental dispõe de corpo técnico especializado na elaboração e execução de projetos ligados à área de Engenharia Ambiental, notadamente nas áreas de Licenciamentos Ambientais e Controle de Poluição.
+            {t("home.institutional.p1")}
           </p>
 
           <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
-            Oferecemos serviços de coleta e transporte de resíduos, com equipamentos de última geração para atendimento do setor público ou privado, em total conformidade com regulamentos e normas técnicas aplicáveis em vigor.
+            {t("home.institutional.p2")}
           </p>
 
           <div class="pt-2">
             <a
               href="/empresa"
-              class="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-[#003300] hover:text-[#006400] group"
+              class="inline-flex items-center gap-2 text-sm sm:text-base font-semibold text-[#003300] hover:text-[#006400] group focus-visible:ring-2 focus-visible:ring-[#006400] rounded"
             >
-              <span>Saiba mais sobre a empresa</span>
+              <span>{t("home.institutional.link")}</span>
               <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1" aria-hidden="true"></i>
             </a>
           </div>
@@ -95,7 +99,7 @@ import ServiceMatrix from "../components/ServiceMatrix.astro";
           <div class="rounded-2xl overflow-hidden shadow-md border border-gray-200 bg-gray-100">
             <img
               src="/img/servico-transporte-residuo.webp"
-              alt="Coleta e Transporte de Resíduos Enfoque Ambiental"
+              alt={t("home.hero.slide2.title")}
               class="w-full h-auto object-cover"
               loading="lazy"
             />

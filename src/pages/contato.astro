@@ -1,21 +1,25 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { company } from "../data/company";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <Layout
-  title="Fale Conosco | Enfoque Ambiental"
-  description="Entre em contato com a Enfoque Ambiental para coleta e transporte de resíduos e consultoria ambiental."
+  title={t("contato.meta.title")}
+  description={t("contato.meta.description")}
   currentPath="/contato"
 >
   <section class="bg-[#003300] text-white py-12 md:py-16 border-b border-emerald-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="max-w-3xl space-y-2">
         <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
-          Fale Conosco
+          {t("contato.hero.title")}
         </h1>
         <p class="text-emerald-100/90 text-base sm:text-lg">
-          Atendimento a geradores industriais, comerciais e entidades públicas para projetos e operações ambientais.
+          {t("contato.hero.subtitle")}
         </p>
       </div>
     </div>
@@ -33,7 +37,7 @@ import { company } from "../data/company";
                 <i class="fa-solid fa-phone text-xl" aria-hidden="true"></i>
               </div>
               <div>
-                <h2 class="text-sm font-bold text-gray-900">Telefones</h2>
+                <h2 class="text-sm font-bold text-gray-900">{t("contato.cards.phonesTitle")}</h2>
                 <div class="text-sm text-gray-600 mt-1 space-y-0.5">
                   {company.phones.map((phone) => (
                     <p>
@@ -51,7 +55,7 @@ import { company } from "../data/company";
                 <i class="fa-solid fa-envelope text-xl" aria-hidden="true"></i>
               </div>
               <div>
-                <h2 class="text-sm font-bold text-gray-900">E-mail</h2>
+                <h2 class="text-sm font-bold text-gray-900">{t("contato.cards.emailTitle")}</h2>
                 <p class="text-sm text-gray-600 mt-1 break-all">
                   <a href={`mailto:${company.email}`} class="hover:text-[#006400] transition-colors focus-visible:ring-2 focus-visible:ring-[#006400] rounded">
                     {company.email}
@@ -65,7 +69,7 @@ import { company } from "../data/company";
           <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-xs relative">
             <h3 class="text-xl font-bold text-[#003300] mb-6 flex items-center gap-2">
               <i class="fa-solid fa-file-pen text-[#006400]" aria-hidden="true"></i>
-              <span>Envie sua Mensagem</span>
+              <span>{t("contato.form.title")}</span>
             </h3>
 
             <!-- Feedback de Sucesso (Live Region) -->
@@ -77,17 +81,17 @@ import { company } from "../data/company";
             >
               <div class="flex items-center gap-3 text-[#006400]">
                 <i class="fa-solid fa-circle-check text-xl" aria-hidden="true"></i>
-                <h4 class="font-bold text-base">Mensagem enviada com sucesso!</h4>
+                <h4 class="font-bold text-base">{t("contato.form.successTitle")}</h4>
               </div>
               <p class="text-sm text-gray-700 leading-relaxed">
-                Agradecemos o contato. Nossa equipe técnica retornará sua solicitação em breve.
+                {t("contato.form.successDesc")}
               </p>
               <button
                 type="button"
                 id="reset-form-btn"
                 class="inline-flex items-center justify-center text-xs font-bold text-[#006400] hover:text-[#003300] underline focus-visible:ring-2 focus-visible:ring-[#006400] rounded cursor-pointer"
               >
-                Enviar outra mensagem
+                {t("contato.form.resetBtn")}
               </button>
             </div>
 
@@ -99,13 +103,13 @@ import { company } from "../data/company";
               aria-live="assertive"
             >
               <i class="fa-solid fa-circle-exclamation text-lg shrink-0" aria-hidden="true"></i>
-              <span>Ocorreu um erro ao processar seu envio. Verifique os campos e tente novamente.</span>
+              <span>{t("contato.form.errorText")}</span>
             </div>
 
             <form id="contact-form" class="space-y-4" novalidate>
               <div>
                 <label for="name" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
-                  Nome / Empresa <span class="text-red-600" aria-hidden="true">*</span>
+                  {t("contato.form.nameLabel")} <span class="text-red-600" aria-hidden="true">*</span>
                 </label>
                 <input
                   type="text"
@@ -114,18 +118,18 @@ import { company } from "../data/company";
                   required
                   aria-required="true"
                   aria-describedby="name-error"
-                  placeholder="Seu nome ou razão social"
+                  placeholder={t("contato.form.namePlaceholder")}
                   class="w-full min-h-[44px] px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006400] focus:border-transparent outline-hidden text-sm focus-visible:ring-2 focus-visible:ring-[#006400]"
                 />
                 <span id="name-error" class="hidden text-xs text-red-600 mt-1" role="alert">
-                  Por favor, informe seu nome ou empresa.
+                  {t("contato.form.nameError")}
                 </span>
               </div>
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label for="email" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
-                    E-mail <span class="text-red-600" aria-hidden="true">*</span>
+                    {t("contato.form.emailLabel")} <span class="text-red-600" aria-hidden="true">*</span>
                   </label>
                   <input
                     type="email"
@@ -134,17 +138,17 @@ import { company } from "../data/company";
                     required
                     aria-required="true"
                     aria-describedby="email-error"
-                    placeholder="email@empresa.com.br"
+                    placeholder={t("contato.form.emailPlaceholder")}
                     class="w-full min-h-[44px] px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006400] focus:border-transparent outline-hidden text-sm focus-visible:ring-2 focus-visible:ring-[#006400]"
                   />
                   <span id="email-error" class="hidden text-xs text-red-600 mt-1" role="alert">
-                    Informe um e-mail válido.
+                    {t("contato.form.emailError")}
                   </span>
                 </div>
 
                 <div>
                   <label for="phone" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
-                    Telefone <span class="text-red-600" aria-hidden="true">*</span>
+                    {t("contato.form.phoneLabel")} <span class="text-red-600" aria-hidden="true">*</span>
                   </label>
                   <input
                     type="tel"
@@ -153,35 +157,35 @@ import { company } from "../data/company";
                     required
                     aria-required="true"
                     aria-describedby="phone-error"
-                    placeholder="(19) 99999-9999"
+                    placeholder={t("contato.form.phonePlaceholder")}
                     class="w-full min-h-[44px] px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006400] focus:border-transparent outline-hidden text-sm focus-visible:ring-2 focus-visible:ring-[#006400]"
                   />
                   <span id="phone-error" class="hidden text-xs text-red-600 mt-1" role="alert">
-                    Informe um telefone de contato.
+                    {t("contato.form.phoneError")}
                   </span>
                 </div>
               </div>
 
               <div>
                 <label for="service" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
-                  Assunto de Interesse
+                  {t("contato.form.subjectLabel")}
                 </label>
                 <select
                   id="service"
                   name="service"
                   class="w-full min-h-[44px] px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006400] focus:border-transparent outline-hidden text-sm text-gray-700 focus-visible:ring-2 focus-visible:ring-[#006400]"
                 >
-                  <option value="coleta">Coleta e Transporte de Resíduos (Classe I e II)</option>
-                  <option value="consultoria">Consultoria e Licenciamento CETESB / CADRI</option>
-                  <option value="gerenciamento">Gerenciamento e Destinação de Resíduos</option>
-                  <option value="equipamentos">Locação e Dimensionamento de Caçambas / Equipamentos</option>
-                  <option value="outro">Outras Consultas Técnicas</option>
+                  <option value="coleta">{t("contato.form.optColeta")}</option>
+                  <option value="consultoria">{t("contato.form.optConsultoria")}</option>
+                  <option value="gerenciamento">{t("contato.form.optGerenciamento")}</option>
+                  <option value="equipamentos">{t("contato.form.optEquipamentos")}</option>
+                  <option value="outro">{t("contato.form.optOutro")}</option>
                 </select>
               </div>
 
               <div>
                 <label for="message" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
-                  Mensagem <span class="text-red-600" aria-hidden="true">*</span>
+                  {t("contato.form.messageLabel")} <span class="text-red-600" aria-hidden="true">*</span>
                 </label>
                 <textarea
                   id="message"
@@ -190,11 +194,11 @@ import { company } from "../data/company";
                   required
                   aria-required="true"
                   aria-describedby="message-error"
-                  placeholder="Descreva sua demanda ou características do resíduo..."
+                  placeholder={t("contato.form.messagePlaceholder")}
                   class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006400] focus:border-transparent outline-hidden text-sm focus-visible:ring-2 focus-visible:ring-[#006400]"
                 ></textarea>
                 <span id="message-error" class="hidden text-xs text-red-600 mt-1" role="alert">
-                  Por favor, descreva sua mensagem.
+                  {t("contato.form.messageError")}
                 </span>
               </div>
 
@@ -203,10 +207,10 @@ import { company } from "../data/company";
                 id="submit-btn"
                 class="w-full min-h-[48px] bg-[#006400] hover:bg-[#004d00] disabled:bg-gray-400 text-white font-bold py-3 px-6 rounded-lg shadow-sm hover:shadow transition-all flex items-center justify-center cursor-pointer disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#006400]"
               >
-                <span id="btn-text">Enviar Mensagem</span>
+                <span id="btn-text">{t("contato.form.submit")}</span>
                 <span id="btn-spinner" class="hidden items-center gap-2">
                   <i class="fa-solid fa-circle-notch fa-spin text-sm" aria-hidden="true"></i>
-                  <span>Processando envio...</span>
+                  <span>{t("contato.form.submitting")}</span>
                 </span>
               </button>
             </form>
@@ -221,7 +225,7 @@ import { company } from "../data/company";
                 <i class="fa-solid fa-map-location-dot text-xl" aria-hidden="true"></i>
               </div>
               <div>
-                <h3 class="font-bold text-gray-900 text-lg">Endereço e Localização</h3>
+                <h3 class="font-bold text-gray-900 text-lg">{t("contato.cards.locationTitle")}</h3>
                 <p class="text-sm text-gray-600 mt-1 leading-relaxed">
                   {company.address.street} • {company.address.district}<br />
                   {company.address.city} - {company.address.state} • CEP {company.address.zip}
@@ -232,7 +236,7 @@ import { company } from "../data/company";
             <!-- Mapa com iframe acessivel -->
             <div class="rounded-xl overflow-hidden border border-gray-200 h-[380px] w-full">
               <iframe
-                title="Localização da Enfoque Ambiental em Araras/SP"
+                title={t("contato.map.iframeTitle")}
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.414123042048!2d-47.40495368591002!3d-22.375740485284382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c877717736f837%3A0x3214a39d587a308f!2sR.+Ruperto+Malaman%2C+380%2C+Araras+-+SP%2C+13602-104!5e0!3m2!1spt-BR!2sbr!4v1500000000000"
                 width="100%"
                 height="100%"
