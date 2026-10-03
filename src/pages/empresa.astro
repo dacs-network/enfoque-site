@@ -3,11 +3,10 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
-  title="Empresa | Enfoque Ambiental"
-  description="Conheça a atuação e objetivos da Enfoque Ambiental em Engenharia e Consultoria Ambiental."
+  title="A Empresa | Enfoque Ambiental"
+  description="Histórico, diretrizes técnicas e estrutura da Enfoque Ambiental em Araras e interior paulista."
   currentPath="/empresa"
 >
-  <!-- Page Header -->
   <section class="bg-[#003300] text-white py-12 md:py-16 border-b border-emerald-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="max-w-3xl space-y-2">
@@ -15,57 +14,95 @@ import Layout from "../layouts/Layout.astro";
           A Empresa
         </h1>
         <p class="text-emerald-100/90 text-base sm:text-lg">
-          Atuação em Engenharia Ambiental, Licenciamentos e Controle de Poluição há mais de 10 anos.
+          Histórico operacional, diretrizes técnicas e atuação em engenharia ambiental no interior de São Paulo.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Content Section -->
   <section class="py-16 md:py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        <div class="lg:col-span-8 space-y-8">
-          <!-- Quem Somos -->
-          <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200 shadow-xs space-y-4">
-            <h2 class="text-2xl font-bold text-[#003300]">
-              Quem Somos
-            </h2>
-            <p class="text-gray-700 leading-relaxed text-base sm:text-lg">
-              A Enfoque Ambiental é uma empresa de consultoria que dispõe de um corpo técnico especializado na elaboração e execução de projetos ligados à área de Engenharia Ambiental, notadamente nas áreas de Licenciamentos Ambientais e Controle de Poluição.
-            </p>
-          </div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 space-y-12">
+      <!-- Visão Geral -->
+      <div class="space-y-4">
+        <span class="text-xs font-bold uppercase tracking-wider text-[#006400]">
+          Perfil Institucional
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#003300] tracking-tight">
+          Mais de uma década de atuação em engenharia e gestão de resíduos
+        </h2>
+        <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
+          Fundada e sediada no município de Araras/SP, a Enfoque Ambiental desenvolve soluções aplicadas para atendimento a geradores industriais, comerciais e entidades públicas. A atuação combina consultoria em licenciamento ambiental à execução prática de coleta, transporte e destinação de resíduos.
+        </p>
+        <p class="text-gray-700 text-base sm:text-lg leading-relaxed">
+          O corpo técnico é estruturado para atender demandas complexas de controle de poluição, emissão de CADRI, outorgas de recursos hídricos e transporte de cargas perigosas (Classe I) e não perigosas (Classe II).
+        </p>
+      </div>
 
-          <!-- Meta -->
-          <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200 shadow-xs space-y-4">
-            <h2 class="text-2xl font-bold text-[#003300]">
-              Meta
-            </h2>
-            <p class="text-gray-700 leading-relaxed text-base sm:text-lg">
-              Orientar empresas e entidades a planejarem suas atividades de forma compatível com a Legislação Ambiental e com a preservação do meio ambiente através de projetos ambientais, controle de poluição, tratamento de efluentes, gerenciamento e destinação final de resíduos e diagnósticos ambientais.
-            </p>
+      <!-- Pilares Técnicos -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-200 space-y-3">
+          <div class="w-10 h-10 rounded-lg bg-[#003300] text-[#a6d37e] flex items-center justify-center">
+            <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
           </div>
+          <h3 class="text-base font-bold text-gray-900">Rigor Normativo</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            Processos conduzidos sob as diretrizes técnicas da CETESB, IBAMA, DAEE e normas ABNT vigentes.
+          </p>
         </div>
 
-        <!-- Sidebar -->
-        <div class="lg:col-span-4 space-y-6">
-          <div class="bg-[#003300] text-white p-6 rounded-2xl shadow-sm space-y-4">
-            <h3 class="text-lg font-bold border-b border-emerald-900 pb-3">
-              Atendimento e Dúvidas
-            </h3>
-            <p class="text-sm text-emerald-100/90 leading-relaxed">
-              Consulte nossa equipe técnica para projetos ambientais, licenciamento perante a CETESB e transporte de resíduos.
-            </p>
-            <div class="pt-2">
-              <a
-                href="/contato"
-                class="block text-center w-full bg-[#006400] hover:bg-[#004d00] text-white font-bold py-3 rounded-lg transition-colors"
-              >
-                Fale Conosco
-              </a>
-            </div>
+        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-200 space-y-3">
+          <div class="w-10 h-10 rounded-lg bg-[#003300] text-[#a6d37e] flex items-center justify-center">
+            <i class="fa-solid fa-route" aria-hidden="true"></i>
+          </div>
+          <h3 class="text-base font-bold text-gray-900">Rastreabilidade</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            Controle documental rigoroso com emissão de MTR, manifestos e destinação em locais devidamente licenciados.
+          </p>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-200 space-y-3">
+          <div class="w-10 h-10 rounded-lg bg-[#003300] text-[#a6d37e] flex items-center justify-center">
+            <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+          </div>
+          <h3 class="text-base font-bold text-gray-900">Segurança Operacional</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">
+            Equipamentos homologados pela ANTT e equipe capacitada para manuseio seguro de produtos e efluentes.
+          </p>
+        </div>
+      </div>
+
+      <!-- Estrutura Operacional -->
+      <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200 space-y-4">
+        <h3 class="text-xl font-bold text-[#003300]">
+          Base Operacional e Pátio Industrial
+        </h3>
+        <p class="text-gray-700 text-sm sm:text-base leading-relaxed">
+          Instalada no Distrito Industrial de Araras/SP, a empresa conta com pátio estruturado para manobra de carretas, veículos roll-on, caminhões a vácuo e hidrojateamento, além de espaço próprio para organização de caçambas estacionárias e atendimento logístico regional.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 text-sm text-gray-700">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-location-dot text-[#006400]" aria-hidden="true"></i>
+            <span>Rua Ruperto Malaman, 380 • Distrito Industrial • Araras/SP</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-phone text-[#006400]" aria-hidden="true"></i>
+            <span>(19) 3541-7975 • (19) 3321-9111</span>
           </div>
         </div>
+      </div>
+
+      <!-- Fechamento -->
+      <div class="pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div>
+          <h4 class="text-lg font-bold text-gray-900">Precisa de assessoria técnica para a sua empresa?</h4>
+          <p class="text-sm text-gray-600">Consulte nossa equipe técnica para projetos ambientais e transporte de resíduos.</p>
+        </div>
+        <a
+          href="/contato"
+          class="inline-flex items-center justify-center bg-[#006400] hover:bg-[#004d00] text-white font-bold text-sm px-6 py-3 rounded-lg shadow-sm hover:shadow transition-all shrink-0"
+        >
+          Fale Conosco
+        </a>
       </div>
     </div>
   </section>

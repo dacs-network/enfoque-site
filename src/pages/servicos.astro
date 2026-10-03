@@ -1,11 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { services } from "../data/services";
+
+const operationalServices = services.filter((s) => s.category === "operacional");
+const regulatoryServices = services.filter((s) => s.category === "regulatorio");
 ---
 
 <Layout
   title="Serviços | Enfoque Ambiental"
-  description="Serviços de coleta e transporte de resíduos, hidrojateamento, licenciamento CETESB e consultoria ambiental."
+  description="Serviços especializados em coleta, transporte de resíduos perigosos e não perigosos, licenciamento CETESB e consultoria técnica."
   currentPath="/servicos"
 >
   <section class="bg-[#003300] text-white py-12 md:py-16 border-b border-emerald-950">
@@ -15,19 +18,32 @@ import { services } from "../data/services";
           Nossos Serviços
         </h1>
         <p class="text-emerald-100/90 text-base sm:text-lg">
-          Serviços de transporte de resíduos, consultoria técnica e gerenciamento ambiental.
+          Operação logística de resíduos industriais e consultoria técnica em conformidade ambiental.
         </p>
       </div>
     </div>
   </section>
 
   <section class="py-16 md:py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {services.map((serv) => (
-          <div class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-xs flex flex-col justify-between">
-            <div>
-              <div class="h-44 overflow-hidden bg-gray-100 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-16">
+      <!-- Bloco 1: Operações e Logística de Resíduos -->
+      <div class="space-y-6">
+        <div class="border-b border-gray-200 pb-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#006400]">
+            Operação de Campo
+          </span>
+          <h2 class="text-2xl font-extrabold text-[#003300] tracking-tight">
+            Coleta, Transporte e Gerenciamento de Resíduos
+          </h2>
+          <p class="text-sm text-gray-600 mt-1">
+            Movimentação segura de resíduos industriais com frota própria e destinação em locais licenciados.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {operationalServices.map((serv) => (
+            <div class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-xs flex flex-col justify-between">
+              <div class="h-48 overflow-hidden bg-gray-100 relative">
                 <img
                   src={serv.image}
                   alt={serv.title}
@@ -39,20 +55,20 @@ import { services } from "../data/services";
                 </div>
               </div>
 
-              <div class="p-6 space-y-4">
-                <h2 class="text-lg font-bold text-[#003300]">
+              <div class="p-6 sm:p-8 space-y-4 flex-1">
+                <h3 class="text-xl font-bold text-[#003300]">
                   {serv.title}
-                </h2>
-                <p class="text-gray-600 text-sm leading-relaxed">
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
                   {serv.description}
                 </p>
 
                 <div class="pt-2">
-                  <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Escopo Técnico:</h3>
-                  <ul class="space-y-1.5 text-xs text-gray-700">
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Escopo Técnico:</h4>
+                  <ul class="space-y-2 text-xs sm:text-sm text-gray-700">
                     {serv.scope.map((item) => (
                       <li class="flex items-start gap-2">
-                        <i class="fa-solid fa-check text-[#006400] mt-0.5" aria-hidden="true"></i>
+                        <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -60,17 +76,80 @@ import { services } from "../data/services";
                 </div>
               </div>
             </div>
+          ))}
+        </div>
+      </div>
 
-            <div class="p-6 pt-0 mt-4">
-              <a
-                href="/contato"
-                class="inline-flex items-center justify-center w-full bg-[#006400] hover:bg-[#004d00] text-white font-semibold text-sm py-2.5 rounded-lg transition-colors"
-              >
-                Fale Conosco
-              </a>
+      <!-- Bloco 2: Engenharia Consultiva e Licenciamento -->
+      <div class="space-y-6">
+        <div class="border-b border-gray-200 pb-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#006400]">
+            Consultoria e Regularização
+          </span>
+          <h2 class="text-2xl font-extrabold text-[#003300] tracking-tight">
+            Licenciamentos, Normas e Estudos Ambientais
+          </h2>
+          <p class="text-sm text-gray-600 mt-1">
+            Assessoria técnica e jurídica para regularização perante órgãos fiscalizadores federais e estaduais.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {regulatoryServices.map((serv) => (
+            <div class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-xs flex flex-col justify-between">
+              <div class="h-48 overflow-hidden bg-gray-100 relative">
+                <img
+                  src={serv.image}
+                  alt={serv.title}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div class="absolute top-4 left-4 w-10 h-10 rounded-lg bg-[#003300] text-[#a6d37e] flex items-center justify-center shadow-md">
+                  <i class={`${serv.icon} text-lg`} aria-hidden="true"></i>
+                </div>
+              </div>
+
+              <div class="p-6 sm:p-8 space-y-4 flex-1">
+                <h3 class="text-xl font-bold text-[#003300]">
+                  {serv.title}
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  {serv.description}
+                </p>
+
+                <div class="pt-2">
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Escopo Técnico:</h4>
+                  <ul class="space-y-2 text-xs sm:text-sm text-gray-700">
+                    {serv.scope.map((item) => (
+                      <li class="flex items-start gap-2">
+                        <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+      </div>
+
+      <!-- Fechamento Único de Conversão -->
+      <div class="bg-[#003300] text-white p-8 sm:p-10 rounded-2xl shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div class="space-y-1">
+          <h3 class="text-xl font-bold text-white">
+            Necessita de suporte para licenciamento ou destinação de resíduos?
+          </h3>
+          <p class="text-sm text-emerald-100/80">
+            Entre em contato para avaliar o escopo e as exigências técnicas da sua operação.
+          </p>
+        </div>
+        <a
+          href="/contato"
+          class="inline-flex items-center justify-center bg-[#006400] hover:bg-[#004d00] text-white font-bold text-sm px-6 py-3 rounded-lg shadow-sm hover:shadow transition-all shrink-0"
+        >
+          Fale Conosco
+        </a>
       </div>
     </div>
   </section>

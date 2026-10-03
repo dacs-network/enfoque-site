@@ -32,7 +32,7 @@ const slides: Slide[] = [
   <div id="hero-carousel" class="relative w-full overflow-hidden min-h-[380px] sm:min-h-[440px] md:min-h-[500px]">
     {slides.map((slide, index) => (
       <div
-        class={`carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out flex items-center ${
+        class={`carousel-slide absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out motion-reduce:transition-none flex items-center ${
           index === 0 ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
         }`}
         data-slide-index={index}
@@ -147,7 +147,10 @@ const slides: Slide[] = [
     showSlide(currentSlide - 1);
   }
 
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   function resetAutoplay() {
+    if (prefersReducedMotion) return;
     if (autoplayTimer) clearInterval(autoplayTimer);
     autoplayTimer = window.setInterval(nextSlide, 7000);
   }
@@ -174,6 +177,8 @@ const slides: Slide[] = [
       });
     });
 
-    resetAutoplay();
+    if (!prefersReducedMotion) {
+      resetAutoplay();
+    }
   }
 </script>
