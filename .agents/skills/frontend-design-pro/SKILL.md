@@ -108,7 +108,6 @@ A identidade visual da marca tem precedência absoluta. O agente deve atuar como
 - **Corte de Inflação Corporativa:** Elimine jargões vazios como "soluções completas de ponta a ponta" ou "excelência inabalável". Mostre tolerâncias, métodos, ligas metálicas e normas oficiais (ABNT, NR, ASME, AWS).
 - **Regra de Compressão:** Remova cerca de 20% do texto após o rascunho inicial.
 - **Filtro de "Prompt-ese":** Proibido o uso de termos pretensiosos comuns em LLM (ex.: "Matriz Operacional", "Prontidão Regional", "Verdade da Matéria").
-- **Veto a Rótulos Territoriais Artificiais:** Proibido referenciar instalações físicas, galpões, sedes ou oficinas usando termos conceituais empolados (ex.: "Matriz Operacional", "Complexo Operacional", "Hub de Engenharia"). Para designar endereços e instalações físicas, utilize exclusivamente o vocabulário real da indústria: "Filia", "Sede Fabril", "Nossa Fábrica", "Oficina Própria", "Pátio Industrial" ou apenas "Sede (Cidade/UF)".
 
 ### 5.1. Regra Canônica de Microcopy para CTAs e Formulários
 A interface deve adotar um padrão unificado e previsível de chamadas para ação, eliminando variações arbitrárias:

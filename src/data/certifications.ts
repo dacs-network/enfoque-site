@@ -55,7 +55,7 @@ export const certifications: CertificationItem[] = [
     id: "alvara",
     name: "Alvará Municipal",
     authority: "Prefeitura Municipal de Araras",
-    scope: "Alvará de Funcionamento e Localização do pátio operacional",
+    scope: "Alvará de Funcionamento e Localização emitido pela Prefeitura Municipal",
     image: "/img/logotipos/alvara.jpg",
     documents: [
       { title: "Alvará de Funcionamento", href: "/certificados/alvara/alvara.pdf" },
