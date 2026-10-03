@@ -9,50 +9,76 @@ const { showTitle = true } = Astro.props;
 ---
 
 <section class="py-16 md:py-20 bg-white" aria-labelledby="equipment-heading">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-8">
     {showTitle && (
-      <div class="max-w-3xl mb-12 space-y-2">
+      <div class="max-w-3xl space-y-2">
         <h2 id="equipment-heading" class="text-2xl sm:text-3xl font-extrabold text-[#003300] tracking-tight">
           Nossos Equipamentos
         </h2>
         <p class="text-gray-600 text-base">
-          Frota própria homologada para transporte de efluentes, tambores e resíduos industriais:
+          Especificações técnicas da frota própria homologada para operações industriais e rodoviárias:
         </p>
       </div>
     )}
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {fleet.map((vehicle) => (
-        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-200 shadow-xs flex flex-col justify-between hover:border-[#98c571] transition-colors">
-          <div class="space-y-4">
-            <div class="flex items-center justify-between gap-3">
-              <div class="w-12 h-12 rounded-xl bg-[#003300] text-[#a6d37e] flex items-center justify-center shrink-0">
-                <i class={`${vehicle.icon} text-xl`} aria-hidden="true"></i>
+    <!-- Tabela Técnica para Desktop e Tablets -->
+    <div class="hidden md:block overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xs">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm text-gray-700">
+          <thead class="bg-[#003300] text-xs uppercase tracking-wider text-white">
+            <tr>
+              <th scope="col" class="py-4 px-6 font-bold">Veículo / Equipamento</th>
+              <th scope="col" class="py-4 px-6 font-bold">Aplicação Operacional</th>
+              <th scope="col" class="py-4 px-6 font-bold">Capacidade Homologada</th>
+              <th scope="col" class="py-4 px-6 font-bold">Resíduos e Materiais</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            {fleet.map((item, index) => (
+              <tr class={index % 2 === 0 ? "bg-white hover:bg-gray-50/80 transition-colors" : "bg-gray-50/50 hover:bg-gray-50 transition-colors"}>
+                <td class="py-4 px-6 font-bold text-gray-900 flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-lg bg-[#003300] text-[#a6d37e] flex items-center justify-center shrink-0 text-sm">
+                    <i class={item.icon} aria-hidden="true"></i>
+                  </div>
+                  <span>{item.name}</span>
+                </td>
+                <td class="py-4 px-6 text-gray-600">
+                  {item.application}
+                </td>
+                <td class="py-4 px-6 font-semibold text-[#006400] tabular-nums whitespace-nowrap">
+                  {item.capacity || "—"}
+                </td>
+                <td class="py-4 px-6 text-gray-700 text-xs sm:text-sm">
+                  {item.material}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Lista Estruturada para Dispositivos Móveis -->
+    <div class="grid grid-cols-1 gap-4 md:hidden">
+      {fleet.map((item) => (
+        <div class="bg-gray-50 rounded-xl p-5 border border-gray-200 space-y-3">
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-lg bg-[#003300] text-[#a6d37e] flex items-center justify-center shrink-0 text-xs">
+                <i class={item.icon} aria-hidden="true"></i>
               </div>
-              {vehicle.capacity && (
-                <span class="text-xs font-semibold px-2.5 py-1 rounded-md bg-emerald-100/70 text-emerald-900 text-right">
-                  {vehicle.capacity}
-                </span>
-              )}
+              <h3 class="font-bold text-gray-900 text-base">{item.name}</h3>
             </div>
-
-            <div>
-              <h3 class="text-lg font-bold text-gray-900">
-                {vehicle.name}
-              </h3>
-              <p class="text-xs text-gray-500 mt-0.5">
-                {vehicle.application}
-              </p>
-            </div>
-
-            <div class="pt-2 border-t border-gray-200/60">
-              <span class="text-xs font-bold text-gray-700 block uppercase tracking-wider mb-1">
-                Material Atendido:
+            {item.capacity && (
+              <span class="text-xs font-semibold px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-900 tabular-nums">
+                {item.capacity}
               </span>
-              <p class="text-sm text-gray-600 leading-relaxed">
-                {vehicle.material}
-              </p>
-            </div>
+            )}
+          </div>
+          <p class="text-xs text-gray-600">{item.application}</p>
+          <div class="pt-2 border-t border-gray-200 text-xs text-gray-700">
+            <strong class="font-semibold text-gray-900 block mb-0.5">Material Atendido:</strong>
+            <span>{item.material}</span>
           </div>
         </div>
       ))}

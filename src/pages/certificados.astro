@@ -27,11 +27,11 @@ import { certifications } from "../data/certifications";
         {certifications.map((cert) => (
           <div class="p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 hover:bg-gray-50/50 transition-colors">
             <div class="flex items-start gap-5">
-              <div class="w-20 h-16 rounded-xl bg-white border border-gray-200 p-2 flex items-center justify-center shrink-0 shadow-2xs">
+              <div class="w-24 h-16 rounded-xl bg-white border border-gray-200 p-2 flex items-center justify-center shrink-0 shadow-2xs">
                 <img
                   src={cert.image}
                   alt={`Logotipo ${cert.name}`}
-                  class="h-12 w-full object-contain"
+                  class="h-12 max-w-full object-contain"
                   loading="lazy"
                 />
               </div>
@@ -58,7 +58,7 @@ import { certifications } from "../data/certifications";
                   href={doc.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center gap-2 text-xs font-bold text-[#003300] hover:text-[#006400] bg-gray-100 hover:bg-emerald-50 border border-gray-200 px-4 py-2.5 rounded-lg transition-colors whitespace-nowrap"
+                  class="inline-flex items-center gap-2 text-xs font-bold text-[#003300] hover:text-[#006400] bg-gray-100 hover:bg-emerald-50 border border-gray-200 px-4 py-2.5 rounded-lg transition-colors whitespace-nowrap focus-visible:ring-2 focus-visible:ring-[#006400] focus-visible:outline-hidden"
                 >
                   <i class="fa-solid fa-file-pdf text-red-600 text-sm" aria-hidden="true"></i>
                   <span>{doc.title}</span>

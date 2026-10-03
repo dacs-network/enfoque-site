@@ -1,9 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { services } from "../data/services";
-
-const operationalServices = services.filter((s) => s.category === "operacional");
-const regulatoryServices = services.filter((s) => s.category === "regulatorio");
 ---
 
 <Layout
@@ -18,7 +14,7 @@ const regulatoryServices = services.filter((s) => s.category === "regulatorio");
           Nossos Serviços
         </h1>
         <p class="text-emerald-100/90 text-base sm:text-lg">
-          Operação logística de resíduos industriais e consultoria técnica em conformidade ambiental.
+          Operação logística de resíduos industriais e assessoria técnica em conformidade ambiental.
         </p>
       </div>
     </div>
@@ -26,111 +22,191 @@ const regulatoryServices = services.filter((s) => s.category === "regulatorio");
 
   <section class="py-16 md:py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-16">
-      <!-- Bloco 1: Operações e Logística de Resíduos -->
-      <div class="space-y-6">
-        <div class="border-b border-gray-200 pb-4">
+      
+      <!-- FRENTE 1: Operações e Logística de Resíduos -->
+      <div class="space-y-8">
+        <div class="border-b border-gray-200 pb-4 max-w-3xl">
           <span class="text-xs font-bold uppercase tracking-wider text-[#006400]">
-            Operação de Campo
+            Logística e Campo
           </span>
-          <h2 class="text-2xl font-extrabold text-[#003300] tracking-tight">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#003300] tracking-tight">
             Coleta, Transporte e Gerenciamento de Resíduos
           </h2>
           <p class="text-sm text-gray-600 mt-1">
-            Movimentação segura de resíduos industriais com frota própria e destinação em locais licenciados.
+            Movimentação rodoviária e controle operacional em total conformidade com normas técnicas e ambientais.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {operationalServices.map((serv) => (
-            <div class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-xs flex flex-col justify-between">
-              <div class="h-48 overflow-hidden bg-gray-100 relative">
-                <img
-                  src={serv.image}
-                  alt={serv.title}
-                  class="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <div class="absolute top-4 left-4 w-10 h-10 rounded-lg bg-[#003300] text-[#a6d37e] flex items-center justify-center shadow-md">
-                  <i class={`${serv.icon} text-lg`} aria-hidden="true"></i>
-                </div>
-              </div>
-
-              <div class="p-6 sm:p-8 space-y-4 flex-1">
-                <h3 class="text-xl font-bold text-[#003300]">
-                  {serv.title}
-                </h3>
-                <p class="text-gray-700 text-sm leading-relaxed">
-                  {serv.description}
-                </p>
-
-                <div class="pt-2">
-                  <h4 class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Escopo Técnico:</h4>
-                  <ul class="space-y-2 text-xs sm:text-sm text-gray-700">
-                    {serv.scope.map((item) => (
-                      <li class="flex items-start gap-2">
-                        <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <!-- Card de Destaque Operacional -->
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-gray-200 shadow-xs overflow-hidden">
+            <div class="h-64 sm:h-72 overflow-hidden bg-gray-100 relative">
+              <img
+                src="/img/servico-transporte-residuo.webp"
+                alt="Coleta e Transporte de Resíduos Industriais"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div class="absolute bottom-4 left-4 bg-[#003300]/90 backdrop-blur-xs text-white text-xs font-semibold px-3 py-1.5 rounded-lg border border-emerald-700/40">
+                Frota Homologada ANTT
               </div>
             </div>
-          ))}
+            <div class="p-6 sm:p-8 space-y-4">
+              <h3 class="text-xl font-bold text-[#003300]">
+                Coleta e Transporte Especializado
+              </h3>
+              <p class="text-gray-700 text-sm leading-relaxed">
+                Transporte de resíduos com frota própria rastreada e encaminhamento para destinação final em aterros e plantas homologadas pela CETESB.
+              </p>
+              <div class="space-y-2 pt-2 border-t border-gray-100">
+                <span class="text-xs font-bold text-gray-700 uppercase tracking-wider block">Escopo Operacional:</span>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-gray-700">
+                  <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
+                    <span>Resíduos Classe I (Perigosos) e Classe II (Não perigosos)</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
+                    <span>Efluentes líquidos industriais e chorume</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
+                    <span>Atendimento a contingências com produtos químicos</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
+                    <span>Caçambas de 15m³ para descarte industrial e construção civil</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Complementar: Gerenciamento no Gerador -->
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-gray-200 shadow-xs p-6 sm:p-8 space-y-6">
+            <div class="flex items-center gap-3 pb-4 border-b border-gray-100">
+              <div class="w-10 h-10 rounded-lg bg-[#003300] text-[#a6d37e] flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-gray-900">Gerenciamento no Gerador</h3>
+                <p class="text-xs text-gray-500">Fluxos internos e segregação de resíduos</p>
+              </div>
+            </div>
+
+            <p class="text-gray-700 text-sm leading-relaxed">
+              Estruturação dos processos internos do cliente para classificação, acondicionamento e controle documental exigido pelos órgãos fiscalizadores.
+            </p>
+
+            <ul class="space-y-3 text-xs sm:text-sm text-gray-700">
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
+                <span>Diagnóstico e classificação conforme normas ABNT NBR 10.004</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
+                <span>Implantação de procedimentos de coleta e segregação na fonte</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
+                <span>Rastreabilidade com emissão de MTR e manifestos para auditorias</span>
+              </li>
+            </ul>
+
+            <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 text-xs text-gray-600 leading-relaxed">
+              <strong class="font-semibold text-gray-900 block mb-1">Destinação Segura:</strong>
+              Todo transporte é acompanhado de documentação de controle de resíduos, garantindo comprovação de descarte legal para a indústria geradora.
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Bloco 2: Engenharia Consultiva e Licenciamento -->
-      <div class="space-y-6">
-        <div class="border-b border-gray-200 pb-4">
+      <!-- FRENTE 2: Engenharia Consultiva e Licenciamento -->
+      <div class="space-y-8">
+        <div class="border-b border-gray-200 pb-4 max-w-3xl">
           <span class="text-xs font-bold uppercase tracking-wider text-[#006400]">
             Consultoria e Regularização
           </span>
-          <h2 class="text-2xl font-extrabold text-[#003300] tracking-tight">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-[#003300] tracking-tight">
             Licenciamentos, Normas e Estudos Ambientais
           </h2>
           <p class="text-sm text-gray-600 mt-1">
-            Assessoria técnica e jurídica para regularização perante órgãos fiscalizadores federais e estaduais.
+            Assessoria técnica contínua perante órgãos ambientais estaduais e federais.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {regulatoryServices.map((serv) => (
-            <div class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-xs flex flex-col justify-between">
-              <div class="h-48 overflow-hidden bg-gray-100 relative">
-                <img
-                  src={serv.image}
-                  alt={serv.title}
-                  class="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <div class="absolute top-4 left-4 w-10 h-10 rounded-lg bg-[#003300] text-[#a6d37e] flex items-center justify-center shadow-md">
-                  <i class={`${serv.icon} text-lg`} aria-hidden="true"></i>
-                </div>
+          <!-- Painel 1: Licenças e Órgãos -->
+          <div class="bg-white rounded-2xl border border-gray-200 shadow-xs p-6 sm:p-8 space-y-6">
+            <div class="flex items-center gap-3 pb-4 border-b border-gray-100">
+              <div class="w-10 h-10 rounded-lg bg-[#003300] text-[#a6d37e] flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-file-contract" aria-hidden="true"></i>
               </div>
-
-              <div class="p-6 sm:p-8 space-y-4 flex-1">
-                <h3 class="text-xl font-bold text-[#003300]">
-                  {serv.title}
-                </h3>
-                <p class="text-gray-700 text-sm leading-relaxed">
-                  {serv.description}
-                </p>
-
-                <div class="pt-2">
-                  <h4 class="text-xs font-bold uppercase tracking-wider text-gray-500 mb-2">Escopo Técnico:</h4>
-                  <ul class="space-y-2 text-xs sm:text-sm text-gray-700">
-                    {serv.scope.map((item) => (
-                      <li class="flex items-start gap-2">
-                        <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <div>
+                <h3 class="text-lg font-bold text-gray-900">Licenciamento e Autorizações</h3>
+                <p class="text-xs text-gray-500">CETESB, IBAMA e DAEE</p>
               </div>
             </div>
-          ))}
+
+            <p class="text-gray-700 text-sm leading-relaxed">
+              Elaboração e acompanhamento de processos administrativos e técnicos para obtenção e renovação de licenças de operação e autorizações especiais.
+            </p>
+
+            <ul class="space-y-2.5 text-xs sm:text-sm text-gray-700">
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
+                <span>Licenças Prévia (LP), Instalação (LI), Operação (LO) e CDL na CETESB</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
+                <span>Solicitação e renovação de CADRI junto à CETESB</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
+                <span>Cadastro Técnico Federal (CTF) e autorizações ambientais no IBAMA</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
+                <span>Outorgas de direito de uso e interferência de recursos hídricos no DAEE</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Painel 2: Planos, Normas e Laudos -->
+          <div class="bg-white rounded-2xl border border-gray-200 shadow-xs p-6 sm:p-8 space-y-6">
+            <div class="flex items-center gap-3 pb-4 border-b border-gray-100">
+              <div class="w-10 h-10 rounded-lg bg-[#003300] text-[#a6d37e] flex items-center justify-center shrink-0">
+                <i class="fa-solid fa-book-bookmark" aria-hidden="true"></i>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-gray-900">Planos, Normas e Manuais</h3>
+                <p class="text-xs text-gray-500">Documentação e pareceres de engenharia</p>
+              </div>
+            </div>
+
+            <p class="text-gray-700 text-sm leading-relaxed">
+              Elaboração de estudos técnicos e manuais de procedimentos para atendimento a auditorias e exigências legais do setor produtivo.
+            </p>
+
+            <ul class="space-y-2.5 text-xs sm:text-sm text-gray-700">
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
+                <span>Plano de Gerenciamento de Resíduos Sólidos (PGRS)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
+                <span>Documentação para transporte rodoviário de produtos perigosos</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
+                <span>Estudos de Viabilidade de Implantação (EVI)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="fa-solid fa-check text-[#006400] mt-1 shrink-0" aria-hidden="true"></i>
+                <span>Pareceres técnicos ambientais e planos de monitoramento</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -146,7 +222,7 @@ const regulatoryServices = services.filter((s) => s.category === "regulatorio");
         </div>
         <a
           href="/contato"
-          class="inline-flex items-center justify-center bg-[#006400] hover:bg-[#004d00] text-white font-bold text-sm px-6 py-3 rounded-lg shadow-sm hover:shadow transition-all shrink-0"
+          class="inline-flex items-center justify-center bg-[#006400] hover:bg-[#004d00] text-white font-bold text-sm px-6 py-3 rounded-lg shadow-sm hover:shadow transition-all shrink-0 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#a6d37e]"
         >
           Fale Conosco
         </a>

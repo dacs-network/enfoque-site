@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { company } from "../data/company";
 ---
 
 <Layout
@@ -7,7 +8,6 @@ import Layout from "../layouts/Layout.astro";
   description="Entre em contato com a Enfoque Ambiental para coleta e transporte de resíduos e consultoria ambiental."
   currentPath="/contato"
 >
-  <!-- Page Header -->
   <section class="bg-[#003300] text-white py-12 md:py-16 border-b border-emerald-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="max-w-3xl space-y-2">
@@ -15,19 +15,18 @@ import Layout from "../layouts/Layout.astro";
           Fale Conosco
         </h1>
         <p class="text-emerald-100/90 text-base sm:text-lg">
-          Entre em contato através dos telefones, e-mail ou pelo formulário abaixo.
+          Atendimento a geradores industriais, comerciais e entidades públicas para projetos e operações ambientais.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Contact & Map Section -->
   <section class="py-16 md:py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <!-- Contact Information & Form -->
+        <!-- Coluna da Esquerda: Contatos e Formulário -->
         <div class="lg:col-span-6 space-y-8">
-          <!-- Cards de Contato -->
+          <!-- Cards de Contato Direto -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-xs flex items-start gap-4">
               <div class="w-12 h-12 rounded-xl bg-[#003300] text-[#a6d37e] flex items-center justify-center shrink-0">
@@ -35,12 +34,15 @@ import Layout from "../layouts/Layout.astro";
               </div>
               <div>
                 <h2 class="text-sm font-bold text-gray-900">Telefones</h2>
-                <p class="text-sm text-gray-600 mt-1">
-                  <a href="tel:1935417975" class="hover:text-[#006400]">(19) 3541-7975</a>
-                </p>
-                <p class="text-sm text-gray-600">
-                  <a href="tel:1933219111" class="hover:text-[#006400]">(19) 3321-9111</a>
-                </p>
+                <div class="text-sm text-gray-600 mt-1 space-y-0.5">
+                  {company.phones.map((phone) => (
+                    <p>
+                      <a href={`tel:${phone.raw}`} class="hover:text-[#006400] transition-colors focus-visible:ring-2 focus-visible:ring-[#006400] rounded">
+                        {phone.display}
+                      </a>
+                    </p>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -51,124 +53,186 @@ import Layout from "../layouts/Layout.astro";
               <div>
                 <h2 class="text-sm font-bold text-gray-900">E-mail</h2>
                 <p class="text-sm text-gray-600 mt-1 break-all">
-                  <a href="mailto:contato@enfoqueambiental.com.br" class="hover:text-[#006400]">contato@enfoqueambiental.com.br</a>
+                  <a href={`mailto:${company.email}`} class="hover:text-[#006400] transition-colors focus-visible:ring-2 focus-visible:ring-[#006400] rounded">
+                    {company.email}
+                  </a>
                 </p>
               </div>
             </div>
           </div>
 
-          <!-- Formulário de Mensagem -->
-          <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-xs">
+          <!-- Formulário com Estados de Interface e Validação Acessível -->
+          <div class="bg-white p-8 rounded-2xl border border-gray-200 shadow-xs relative">
             <h3 class="text-xl font-bold text-[#003300] mb-6 flex items-center gap-2">
               <i class="fa-solid fa-file-pen text-[#006400]" aria-hidden="true"></i>
               <span>Envie sua Mensagem</span>
             </h3>
 
-            <form class="space-y-4" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! Entraremos em contato.');">
+            <!-- Feedback de Sucesso (Live Region) -->
+            <div
+              id="form-success"
+              class="hidden p-6 bg-emerald-50 border border-emerald-200 rounded-xl space-y-3"
+              role="status"
+              aria-live="polite"
+            >
+              <div class="flex items-center gap-3 text-[#006400]">
+                <i class="fa-solid fa-circle-check text-xl" aria-hidden="true"></i>
+                <h4 class="font-bold text-base">Mensagem enviada com sucesso!</h4>
+              </div>
+              <p class="text-sm text-gray-700 leading-relaxed">
+                Agradecemos o contato. Nossa equipe técnica retornará sua solicitação em breve.
+              </p>
+              <button
+                type="button"
+                id="reset-form-btn"
+                class="inline-flex items-center justify-center text-xs font-bold text-[#006400] hover:text-[#003300] underline focus-visible:ring-2 focus-visible:ring-[#006400] rounded cursor-pointer"
+              >
+                Enviar outra mensagem
+              </button>
+            </div>
+
+            <!-- Feedback de Erro (Live Region) -->
+            <div
+              id="form-error"
+              class="hidden mb-4 p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3 text-red-800 text-sm"
+              role="alert"
+              aria-live="assertive"
+            >
+              <i class="fa-solid fa-circle-exclamation text-lg shrink-0" aria-hidden="true"></i>
+              <span>Ocorreu um erro ao processar seu envio. Verifique os campos e tente novamente.</span>
+            </div>
+
+            <form id="contact-form" class="space-y-4" novalidate>
               <div>
                 <label for="name" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
-                  Nome / Empresa
+                  Nome / Empresa <span class="text-red-600" aria-hidden="true">*</span>
                 </label>
                 <input
                   type="text"
                   id="name"
                   name="name"
                   required
-                  placeholder="Seu nome ou empresa"
-                  class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006400] focus:border-transparent outline-hidden text-sm"
+                  aria-required="true"
+                  aria-describedby="name-error"
+                  placeholder="Seu nome ou razão social"
+                  class="w-full min-h-[44px] px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006400] focus:border-transparent outline-hidden text-sm focus-visible:ring-2 focus-visible:ring-[#006400]"
                 />
+                <span id="name-error" class="hidden text-xs text-red-600 mt-1" role="alert">
+                  Por favor, informe seu nome ou empresa.
+                </span>
               </div>
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label for="email" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
-                    E-mail
+                    E-mail <span class="text-red-600" aria-hidden="true">*</span>
                   </label>
                   <input
                     type="email"
                     id="email"
                     name="email"
                     required
+                    aria-required="true"
+                    aria-describedby="email-error"
                     placeholder="email@empresa.com.br"
-                    class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006400] focus:border-transparent outline-hidden text-sm"
+                    class="w-full min-h-[44px] px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006400] focus:border-transparent outline-hidden text-sm focus-visible:ring-2 focus-visible:ring-[#006400]"
                   />
+                  <span id="email-error" class="hidden text-xs text-red-600 mt-1" role="alert">
+                    Informe um e-mail válido.
+                  </span>
                 </div>
 
                 <div>
                   <label for="phone" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
-                    Telefone
+                    Telefone <span class="text-red-600" aria-hidden="true">*</span>
                   </label>
                   <input
                     type="tel"
                     id="phone"
                     name="phone"
                     required
+                    aria-required="true"
+                    aria-describedby="phone-error"
                     placeholder="(19) 99999-9999"
-                    class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006400] focus:border-transparent outline-hidden text-sm"
+                    class="w-full min-h-[44px] px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006400] focus:border-transparent outline-hidden text-sm focus-visible:ring-2 focus-visible:ring-[#006400]"
                   />
+                  <span id="phone-error" class="hidden text-xs text-red-600 mt-1" role="alert">
+                    Informe um telefone de contato.
+                  </span>
                 </div>
               </div>
 
               <div>
                 <label for="service" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
-                  Assunto
+                  Assunto de Interesse
                 </label>
                 <select
                   id="service"
                   name="service"
-                  class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006400] focus:border-transparent outline-hidden text-sm text-gray-700"
+                  class="w-full min-h-[44px] px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006400] focus:border-transparent outline-hidden text-sm text-gray-700 focus-visible:ring-2 focus-visible:ring-[#006400]"
                 >
-                  <option value="coleta">Coleta e Transporte de Resíduos</option>
-                  <option value="consultoria">Consultoria e Licenciamento CETESB</option>
-                  <option value="gerenciamento">Gerenciamento de Resíduos</option>
-                  <option value="outro">Outros</option>
+                  <option value="coleta">Coleta e Transporte de Resíduos (Classe I e II)</option>
+                  <option value="consultoria">Consultoria e Licenciamento CETESB / CADRI</option>
+                  <option value="gerenciamento">Gerenciamento e Destinação de Resíduos</option>
+                  <option value="equipamentos">Locação e Dimensionamento de Caçambas / Equipamentos</option>
+                  <option value="outro">Outras Consultas Técnicas</option>
                 </select>
               </div>
 
               <div>
                 <label for="message" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
-                  Mensagem
+                  Mensagem <span class="text-red-600" aria-hidden="true">*</span>
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   rows="4"
                   required
-                  placeholder="Escreva sua mensagem..."
-                  class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006400] focus:border-transparent outline-hidden text-sm"
+                  aria-required="true"
+                  aria-describedby="message-error"
+                  placeholder="Descreva sua demanda ou características do resíduo..."
+                  class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006400] focus:border-transparent outline-hidden text-sm focus-visible:ring-2 focus-visible:ring-[#006400]"
                 ></textarea>
+                <span id="message-error" class="hidden text-xs text-red-600 mt-1" role="alert">
+                  Por favor, descreva sua mensagem.
+                </span>
               </div>
 
               <button
                 type="submit"
-                class="w-full bg-[#006400] hover:bg-[#004d00] text-white font-bold py-3 px-6 rounded-lg shadow-sm hover:shadow transition-all flex items-center justify-center cursor-pointer focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#006400]"
+                id="submit-btn"
+                class="w-full min-h-[48px] bg-[#006400] hover:bg-[#004d00] disabled:bg-gray-400 text-white font-bold py-3 px-6 rounded-lg shadow-sm hover:shadow transition-all flex items-center justify-center cursor-pointer disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#006400]"
               >
-                Enviar Mensagem
+                <span id="btn-text">Enviar Mensagem</span>
+                <span id="btn-spinner" class="hidden items-center gap-2">
+                  <i class="fa-solid fa-circle-notch fa-spin text-sm" aria-hidden="true"></i>
+                  <span>Processando envio...</span>
+                </span>
               </button>
             </form>
           </div>
         </div>
 
-        <!-- Address & Google Maps Embed -->
+        <!-- Coluna da Direita: Pátio e Mapa -->
         <div class="lg:col-span-6 space-y-6">
-          <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-xs space-y-4">
+          <div class="bg-white p-6 sm:p-8 rounded-2xl border border-gray-200 shadow-xs space-y-4">
             <div class="flex items-start gap-4">
               <div class="w-12 h-12 rounded-xl bg-[#003300] text-[#a6d37e] flex items-center justify-center shrink-0">
                 <i class="fa-solid fa-map-location-dot text-xl" aria-hidden="true"></i>
               </div>
               <div>
-                <h3 class="font-bold text-gray-900 text-lg">Sede</h3>
+                <h3 class="font-bold text-gray-900 text-lg">Pátio Industrial e Sede</h3>
                 <p class="text-sm text-gray-600 mt-1 leading-relaxed">
-                  Rua Ruperto Malaman, 380 • Distrito Industrial<br />
-                  Araras - SP • CEP 13602-104
+                  {company.address.street} • {company.address.district}<br />
+                  {company.address.city} - {company.address.state} • CEP {company.address.zip}
                 </p>
               </div>
             </div>
 
-            <!-- Map Container -->
+            <!-- Mapa com iframe acessivel -->
             <div class="rounded-xl overflow-hidden border border-gray-200 h-[380px] w-full">
               <iframe
-                title="Mapa de localização Enfoque Ambiental"
+                title="Localização da sede da Enfoque Ambiental em Araras/SP"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.414123042048!2d-47.40495368591002!3d-22.375740485284382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c877717736f837%3A0x3214a39d587a308f!2sR.+Ruperto+Malaman%2C+380%2C+Araras+-+SP%2C+13602-104!5e0!3m2!1spt-BR!2sbr!4v1500000000000"
                 width="100%"
                 height="100%"
@@ -184,3 +248,98 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 </Layout>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement | null;
+  const successBox = document.getElementById("form-success");
+  const errorBox = document.getElementById("form-error");
+  const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement | null;
+  const btnText = document.getElementById("btn-text");
+  const btnSpinner = document.getElementById("btn-spinner");
+  const resetBtn = document.getElementById("reset-form-btn");
+
+  if (form && successBox && errorBox && submitBtn && btnText && btnSpinner) {
+    const fields = ["name", "email", "phone", "message"];
+
+    function validateField(fieldId: string): boolean {
+      const input = document.getElementById(fieldId) as HTMLInputElement | HTMLTextAreaElement | null;
+      const errorSpan = document.getElementById(`${fieldId}-error`);
+      if (!input || !errorSpan) return true;
+
+      let isValid = true;
+      if (input.required && !input.value.trim()) {
+        isValid = false;
+      } else if (input.type === "email" && input.value.trim()) {
+        isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
+      }
+
+      if (!isValid) {
+        input.classList.add("border-red-500", "focus:ring-red-500");
+        input.setAttribute("aria-invalid", "true");
+        errorSpan.classList.remove("hidden");
+      } else {
+        input.classList.remove("border-red-500", "focus:ring-red-500");
+        input.setAttribute("aria-invalid", "false");
+        errorSpan.classList.add("hidden");
+      }
+      return isValid;
+    }
+
+    fields.forEach((id) => {
+      const input = document.getElementById(id);
+      if (input) {
+        input.addEventListener("blur", () => validateField(id));
+        input.addEventListener("input", () => {
+          if (input.getAttribute("aria-invalid") === "true") {
+            validateField(id);
+          }
+        });
+      }
+    });
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      errorBox.classList.add("hidden");
+
+      let formIsValid = true;
+      fields.forEach((id) => {
+        if (!validateField(id)) {
+          formIsValid = false;
+        }
+      });
+
+      if (!formIsValid) {
+        errorBox.classList.remove("hidden");
+        return;
+      }
+
+      // Estado de Carregamento (Loading State)
+      submitBtn.disabled = true;
+      btnText.classList.add("hidden");
+      btnSpinner.classList.remove("hidden");
+      btnSpinner.classList.add("flex");
+
+      // Simulação assíncrona de processamento
+      window.setTimeout(() => {
+        submitBtn.disabled = false;
+        btnText.classList.remove("hidden");
+        btnSpinner.classList.add("hidden");
+        btnSpinner.classList.remove("flex");
+
+        // Estado de Sucesso
+        form.classList.add("hidden");
+        successBox.classList.remove("hidden");
+        form.reset();
+      }, 700);
+    });
+
+    if (resetBtn) {
+      resetBtn.addEventListener("click", () => {
+        successBox.classList.add("hidden");
+        form.classList.remove("hidden");
+        const firstInput = document.getElementById("name");
+        firstInput?.focus();
+      });
+    }
+  }
+</script>
